@@ -1,0 +1,7 @@
+[user]
+    name = mcsrainbow
+    email = guosuiyu@gmail.com
+[color]
+    ui = auto
+[includeIf "gitdir:~/SwireProperties/"]
+    path = .gitconfig-swireproperties

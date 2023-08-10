@@ -1,0 +1,106 @@
+# Global settings
+## https://starship.rs/config/
+## Get editor completions based on the config schema
+"$schema" = '~/.config/starship/config-schema.json'
+
+## Inserts a blank line between shell prompts
+add_newline = true
+
+## Timeout for commands executed by starship (in milliseconds)
+command_timeout = 500
+
+# Move the $time to the first line and remove the modules barely used
+format = """
+$shlvl\
+$kubernetes\
+$directory\
+$fossil_branch\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$pijul_channel\
+$docker_context\
+$package\
+$c\
+$cmake\
+$dart\
+$golang\
+$helm\
+$java\
+$gradle\
+$lua\
+$nodejs\
+$opa\
+$perl\
+$php\
+$pulumi\
+$python\
+$rlang\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vagrant\
+$conda\
+$meson\
+$spack\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$custom\
+$sudo\
+$cmd_duration\
+$time\
+$line_break\
+$jobs\
+$battery\
+$status\
+$os\
+$container\
+$shell\
+$character"""
+
+# Replace the '❯' symbol in the prompt with '➜'
+[character]
+success_symbol = '[➜](bold green)'
+error_symbol = '[➜](bold red)'
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+# Display the current Kubernetes context name and namespace
+[kubernetes]
+disabled = true
+symbol='☸|'
+format = '[\($symbol$context:$namespace\)](green) in '
+
+# Disable the AWS module to not show the current AWS region and profile
+[aws]
+disabled = true
+
+# Show how long the last command took to execute
+[cmd_duration]
+min_time = 4_000 # Shortest duration to show time for (in milliseconds)
+
+# Show the path to your current directory
+[directory]
+truncation_symbol = ' '
+home_symbol = ' ~'
+truncation_length = 5 # The number of parent folders that the current directory should be truncated to
+truncate_to_repo = false # Whether or not to truncate to the root of the git repo that you're currently in
+
+# Show the current local time
+[time]
+disabled = false
+format = 'at [ $time]($style) '
+time_format = '%T'
+utc_time_offset = '+8'
+style = 'bold black'

@@ -1,0 +1,187 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# Suppress the warning messages of default interactive shell
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# User specific aliases and functions
+alias ls='lsd'
+alias ll='lsd -l --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias la='lsd -a'
+alias lrt='lsd -lrth --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias lvh='lsd -lvh --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias tree='lsd --tree'
+alias rm='trash-put -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias grep='grep --color=auto'
+alias updatedb='sudo gupdatedb --localpaths=/ --prunepaths="/Library /private /System /Volumes" --output=$HOME/.locatedb'
+alias locate='glocate --database=$HOME/.locatedb'
+alias smartroutes='sudo ~/Workspace/scripts/smartroutes.sh'
+alias sed='gsed'
+alias kctx='kubectx'
+alias kns='kubens'
+alias watch='watch '
+alias ccat='pygmentize -g -O style=inkpot'
+
+# Log the history commands with time stamps
+export HISTFILESIZE="1000000000"
+export HISTSIZE="1000000"
+export HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S "
+export HISTIGNORE="history*:pwd:ls:ll:la:lrt:lvh:clear:exit:zsh"
+export HISTCONTROL="ignoredups"
+
+# To support autojump, append "histor -a" to the end of the existing $PROMPT_COMMAND
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
+
+# Enable auto-completion of bash
+source /opt/homebrew/etc/profile.d/bash_completion.sh
+
+# Enable auto-completion via sudo
+complete -cf sudo
+
+# Enable auto-completion of aws
+complete -cf aws
+
+# Readline library accepts \001 and \002 as non-visible text delimiters
+# The bash-specific \[ and \] are translated to \001 and \002
+_nvt_open=$'\001' # non-visible text open
+_nvt_close=$'\002' # non-visible text close
+
+# Enable color in terminal with tput and non-visible text delimiters
+_tput_black=${_nvt_open}$(tput setaf 0)${_nvt_close}
+_tput_red=${_nvt_open}$(tput setaf 1)${_nvt_close}
+_tput_green=${_nvt_open}$(tput setaf 2)${_nvt_close}
+_tput_yellow=${_nvt_open}$(tput setaf 3)${_nvt_close}
+_tput_blue=${_nvt_open}$(tput setaf 4)${_nvt_close}
+_tput_magenta=${_nvt_open}$(tput setaf 5)${_nvt_close}
+_tput_cyan=${_nvt_open}$(tput setaf 6)${_nvt_close}
+_tput_white=${_nvt_open}$(tput setaf 7)${_nvt_close}
+_tput_bold=${_nvt_open}$(tput bold)${_nvt_close}
+_tput_reset=${_nvt_open}$(tput sgr0)${_nvt_close}
+
+# Check current public IP
+function publicip(){
+  local website_list=(
+    ipinfo.io
+    checkip.amazonaws.com
+    ifconfig.co
+    ifconfig.me
+    ifconfig.io
+  )
+  echo "${_tput_yellow}With Proxy:${_tput_reset}"
+  for _website in ${website_list[@]}; do
+    echo " ${_website}: $(curl -s ${_website})"
+  done
+
+  echo ""
+
+  echo "${_tput_yellow}Direct without Proxy:${_tput_reset}"
+  env_unset_cmd="env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY"
+  for _website in ${website_list[@]}; do
+    echo "${_website}: $(${env_unset_cmd} curl -s ${_website})"
+  done
+}
+
+# Filesystem Markers & Jump
+export MARKPATH=$HOME/.marks
+
+function jump(){
+  cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
+}
+
+function mark(){
+  mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
+}
+
+function unmark(){
+  /bin/rm -i $MARKPATH/$1
+}
+
+function _marks(){
+  COMPREPLY=()
+  local cur=${COMP_WORDS[COMP_CWORD]};
+  local com=${COMP_WORDS[COMP_CWORD-1]};
+  case $com in
+    'jump')
+      local marks=($(ls ${MARKPATH}))
+      COMPREPLY=($(compgen -W '${marks[@]}' -- $cur))
+      ;;
+    'unmark')
+      local marks=($(ls ${MARKPATH}))
+      COMPREPLY=($(compgen -W '${marks[@]}' -- $cur))
+      ;;
+  esac
+}
+
+complete -F _marks jump
+complete -F _marks unmark
+
+# Enable auto-completion of smartroutes
+function _routes(){
+  COMPREPLY=()
+  local cur=${COMP_WORDS[COMP_CWORD]};
+  local com=${COMP_WORDS[COMP_CWORD-1]};
+  case $com in
+    'smartroutes')
+      local params=(on off status exception)
+      COMPREPLY=($(compgen -W '${params[@]}' -- $cur))
+      ;;
+  esac
+}
+
+complete -F _routes smartroutes
+
+# Enable Starship
+eval "$(starship init bash)"
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
+# Show current Kubernetes context and namespace with colors in Starship Bash prompt
+function kubeon(){
+  sed -i '/\[kubernetes\]/!b;n;s/disabled = true/disabled = false/' $STARSHIP_CONFIG
+}
+
+function kubeoff(){
+  sed -i '/\[kubernetes\]/!b;n;s/disabled = false/disabled = true/' $STARSHIP_CONFIG
+}
+
+# Generate random password
+function pwrgen(){
+  if [[ $1 == ?(-)+([[:digit:]]) ]]; then
+    local passwdlen=$1
+  else
+    local passwdlen=15
+  fi
+  local passwdstr=$(pwgen -cnsB ${passwdlen} 1)
+  local randomlen=$((${passwdlen}-1))
+  local randomnum=$(($RANDOM%${randomlen}))
+  while [[ ${randomnum} -le 1 ]]; do
+    local randomnum=$(($RANDOM%${randomlen}))
+  done
+  local passwdout=$(echo ${passwdstr} | sed -r 's/(.{'"$randomnum"'})/\1_/' )
+  echo ${_tput_yellow}${passwdout}${_tput_reset}
+}
+
+# Enable auto-completion of kubectl
+source <(kubectl completion bash)
+alias k='kubectl'
+complete -o default -F __start_kubectl k
+
+# The plugin manager for kubectl command-line tool
+export PATH="$HOME/.krew/bin:$PATH"
+
+# Enable NVM
+export NVM_DIR="$HOME/.nvm"
+source /opt/homebrew/opt/nvm/nvm.sh
+
+# Enable autojump
+source /opt/homebrew/etc/profile.d/autojump.sh
+
+# Enable Proxy
+export HTTPS_PROXY="http://127.0.0.1:7890"
+export HTTP_PROXY="http://127.0.0.1:7890"
+export ALL_PROXY="socks5://127.0.0.1:7890"
