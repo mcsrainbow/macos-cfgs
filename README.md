@@ -20,7 +20,9 @@ My Personal macOS Configurations
 │   ├── bashrc
 │   ├── config
 │   │   └── starship
+│   │       ├── README.md
 │   │       ├── config-schema.json
+│   │       ├── icons_in_starship.jpg
 │   │       └── starship.toml
 │   ├── gitconfig
 │   ├── gitconfig-swireproperties
@@ -51,7 +53,7 @@ My Personal macOS Configurations
     ├── tabby_bash-starship_ohmyzsh-p10k.jpg
     └── vim_vimrc.jpg
 
-17 directories, 28 files
+17 directories, 30 files
 ```
 
 ## Screenshots
