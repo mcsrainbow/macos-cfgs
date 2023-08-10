@@ -1,0 +1,75 @@
+# .zshrc.customized
+
+# User specific aliases and functions
+alias ls='lsd'
+alias ll='lsd -l --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias la='lsd -a'
+alias lrt='lsd -lrth --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias lvh='lsd -lvh --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias tree='lsd --tree'
+alias rm='trash-put -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias grep='grep --color=auto'
+alias updatedb='sudo gupdatedb --localpaths=/ --prunepaths="/Library /private /System /Volumes" --output=$HOME/.locatedb'
+alias locate='glocate --database=$HOME/.locatedb'
+alias tailf='sudo tail -f'
+alias cdrepo='cd ~/Workspace/repositories'
+alias sed='gsed'
+alias k='kubectl'
+alias kctx='kubectx'
+alias kns='kubens'
+alias watch='watch '
+alias ccat='pygmentize -g -O style=inkpot'
+
+# Show current Kubernetes context and namespace with colors in shell prompt
+export KUBE_PS1_SYMBOL_ENABLE=false
+
+# Customized PS1
+PROMPT='$(kube_ps1)'$PROMPT
+
+# The plugin manager for kubectl command-line tool
+export PATH="$HOME/.krew/bin:$PATH"
+
+# Enable NVM
+export NVM_DIR="$HOME/.nvm"
+source /opt/homebrew/opt/nvm/nvm.sh
+
+# Increase history size
+export SAVEHIST=1000000000
+export HISTSIZE=1000000
+export HISTORY_IGNORE="(history*|pwd|ls|ll|la|lrt|lvh|clear|exit)"
+
+# Bind ctrl + space to accept the current suggestion
+bindkey '^ ' autosuggest-accept
+
+# Check current public IP
+function publicip(){
+  local website_list=(
+    ipinfo.io
+    checkip.amazonaws.com
+    ifconfig.co
+    ifconfig.me
+    ifconfig.io
+  )
+  for _website in ${website_list[@]}; do
+    echo "${_website}: $(curl -s ${_website})"
+  done
+}
+
+# Generate random password
+function pwrgen(){
+  if [[ $1 == ?(-)+([[:digit:]]) ]]; then
+    local passwdlen=$1
+  else
+    local passwdlen=15
+  fi
+  local passwdstr=$(pwgen -cnsB ${passwdlen} 1)
+  local randomlen=$((${passwdlen}-1))
+  local randomnum=$(($RANDOM%${randomlen}))
+  while [[ ${randomnum} -le 1 ]]; do
+    local randomnum=$(($RANDOM%${randomlen}))
+  done
+  local passwdout=$(echo ${passwdstr} | sed -r 's/(.{'"$randomnum"'})/\1_/' )
+  echo $passwdout
+}
