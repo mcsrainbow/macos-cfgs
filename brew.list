@@ -5,15 +5,10 @@ autojump
 awscli
 bash
 bash-completion
-ca-certificates
-cffi
 cmake
 coreutils
-docutils
 dos2unix
 findutils
-gettext
-gmp
 gnu-sed
 gnu-tar
 go
@@ -24,7 +19,6 @@ hugo
 iftop
 ipcalc
 iperf
-jansson
 k3d
 k9s
 kind
@@ -35,28 +29,14 @@ kubectx
 kubernetes-cli
 kustomize
 lftp
-libidn2
-libunistring
-libyaml
-libzip
 lsd
 lz4
-mpdecimal
 mtr
-ncurses
 nvm
-openssl@1.1
-openssl@3
 pwgen
-pycparser
 pygments
-python-certifi
-python-cryptography
 python@3.11
-pyyaml
-readline
 redis
-six
 sqlite
 starship
 terraform
@@ -66,8 +46,6 @@ tree
 trzsz-go
 watch
 wget
-xz
-zstd
 
 ==> Casks
 anaconda
