@@ -1,12 +1,15 @@
 #!/bin/bash
-# macOS Only
+#
+# Add static routes for all the public IP ranges of the current country to local default gateway,
+# to make data only goes through VPN when accessing other countries.
 
 basedir=$(dirname $0)
+country_abbr="CN"
 apnic_data_url="http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-latest"
 apnic_data="${basedir}/apnic.data"
 subnet_exceptions=(
 8.5.7.0/24
-) # subnets not in apnic_data CN section, just some examples, change/remove them
+) # subnets not in apnic_data $country_abbr section, just some examples, change/remove them
 
 function check_root(){
   if [[ $EUID -ne 0 ]]; then
@@ -26,7 +29,7 @@ function check_data(){
     update_data
   fi
 
-  rawnet_sign=$(grep CN ${apnic_data} |grep ipv4 |head -n 1 |awk -F '|' '{print $4"/"$5}')
+  rawnet_sign=$(grep ${country_abbr} ${apnic_data} |grep ipv4 |head -n 1 |awk -F '|' '{print $4"/"$5}')
   rawnet_sign_formatted=$(format_subnet ${rawnet_sign})
   subnet_sign=$(format_subnet_netstat ${rawnet_sign_formatted})
 }
@@ -84,8 +87,8 @@ function add_routes(){
   oldgw=$(netstat -nr |grep '^default' |grep -v 'ppp' |sed 's/default *\([0-9\.]*\) .*/\1/' |grep -Ev '^$')
   dscacheutil -flushcache
 
-  all_subs=$(grep CN ${apnic_data} |grep ipv4 |awk -F '|' '{print $4"/"$5}')
-  sum_subs=$(grep CN ${apnic_data} |grep ipv4 |wc -l |awk '{print $NF}')
+  all_subs=$(grep ${country_abbr} ${apnic_data} |grep ipv4 |awk -F '|' '{print $4"/"$5}')
+  sum_subs=$(grep ${country_abbr} ${apnic_data} |grep ipv4 |wc -l |awk '{print $NF}')
   local pos_subs=0
   for subnet in ${all_subs}; do
     subnet_formatted=$(format_subnet ${subnet})
@@ -101,8 +104,8 @@ function add_routes(){
 }
 
 function del_routes(){
-  all_subs=$(grep CN ${apnic_data} |grep ipv4 |awk -F '|' '{print $4"/"$5}')
-  sum_subs=$(grep CN ${apnic_data} |grep ipv4 |wc -l |awk '{print $NF}')
+  all_subs=$(grep ${country_abbr} ${apnic_data} |grep ipv4 |awk -F '|' '{print $4"/"$5}')
+  sum_subs=$(grep ${country_abbr} ${apnic_data} |grep ipv4 |wc -l |awk '{print $NF}')
   local pos_subs=0
   for subnet in ${all_subs}; do
     subnet_formatted=$(format_subnet ${subnet})
@@ -114,7 +117,7 @@ function del_routes(){
       echo -ne "Deleting the routes... ${pos_subs}/${sum_subs}\033[0K\r"
     fi
   done
-  echo " Done       " # more blank spaces added to cover all previous output 
+  echo " Done       " # more blank spaces added to cover all previous output
 }
 
 function run_smartroutes(){
