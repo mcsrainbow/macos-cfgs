@@ -1,8 +1,11 @@
 # macOS
 .DS_Store
 
-# VIM
+# Vim
 *.swp
+
+# Emacs/Vi
+*~
 
 # Python
 *.pyc
@@ -11,4 +14,3 @@
 .vscode/
 .idea/
 .ipynb_checkpoints/
-
