@@ -30,14 +30,6 @@ My Personal macOS Configurations
 │   ├── inputrc
 │   ├── kube
 │   │   └── update_kubeconfg.sh
-│   ├── oh-my-zsh
-│   │   └── custom
-│   │       └── completions
-│   │           ├── _aws.zsh -> /opt/homebrew/share/zsh/site-functions/_aws
-│   │           ├── _kubectl.zsh -> /opt/homebrew/share/zsh/site-functions/_kubectl
-│   │           ├── _kubectx.zsh -> /opt/homebrew/share/zsh/site-functions/_kubectx
-│   │           ├── _kubens.zsh -> /opt/homebrew/share/zsh/site-functions/_kubens
-│   │           └── aws_zsh_completer.sh -> /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh
 │   ├── orbstack
 │   │   └── config
 │   │       └── docker.json
@@ -53,7 +45,7 @@ My Personal macOS Configurations
     ├── tabby_bash-starship_ohmyzsh-p10k.jpg
     └── vim_vimrc.jpg
 
-17 directories, 30 files
+14 directories, 25 files
 ```
 
 ## Screenshots
