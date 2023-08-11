@@ -91,9 +91,10 @@ plugins=(
   autojump
 )
 
-# Enable custom completion
+# Enable completions
 fpath+=$ZSH/custom/completions
 fpath+=$ZSH/custom/plugins/zsh-completions/src
+fpath+=$HOMEBREW_PREFIX/share/zsh/site-functions
 
 # Enable oh-my-zsh
 source $ZSH/oh-my-zsh.sh
