@@ -8,10 +8,11 @@
 *~
 
 # Python
-*.pyc
+__pycache__/
+*.py[cod]
+*$py.class
 
 # IDE
 .vscode/
 .idea/
 .ipynb_checkpoints/
-
