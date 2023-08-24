@@ -5,3 +5,10 @@
     ui = auto
 [includeIf "gitdir:~/SwireProperties/"]
     path = .gitconfig-swireproperties
+[core]
+    excludesfile = /Users/damonguo/.gitignore_global
+[filter "lfs"]
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
