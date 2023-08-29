@@ -15,6 +15,7 @@ alias updatedb='sudo gupdatedb --localpaths=/ --prunepaths="/Library /private /S
 alias locate='glocate --database=$HOME/.locatedb'
 alias tar='gtar'
 alias sed='gsed'
+alias date='gdate'
 alias k='kubectl'
 alias kctx='kubectx'
 alias kns='kubens'
