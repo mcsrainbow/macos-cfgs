@@ -14,26 +14,21 @@ format = """
 $shlvl\
 $kubernetes\
 $directory\
-$fossil_branch\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-$hg_branch\
-$pijul_channel\
 $docker_context\
 $package\
 $c\
 $cmake\
-$dart\
 $golang\
 $helm\
 $java\
 $gradle\
 $lua\
 $nodejs\
-$opa\
 $perl\
 $php\
 $pulumi\
@@ -46,8 +41,6 @@ $swift\
 $terraform\
 $vagrant\
 $conda\
-$meson\
-$spack\
 $memory_usage\
 $aws\
 $gcloud\
@@ -78,12 +71,20 @@ disabled = true
 
 # Display the current Kubernetes context name and namespace
 [kubernetes]
-disabled = true
+disabled = false
 symbol='☸|'
 format = '[\($symbol$context:$namespace\)](green) in '
 
 # Disable the AWS module to not show the current AWS region and profile
 [aws]
+disabled = true
+
+# Disable the Google Cloud module to not show the current GCP region and profile
+[gcloud]
+disabled = true
+
+# Disable the OpenStack module to not show the current OpenStack cloud and project
+[openstack]
 disabled = true
 
 # Show how long the last command took to execute
