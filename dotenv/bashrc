@@ -26,7 +26,7 @@ alias tar='gtar'
 alias sed='gsed'
 alias date='gdate'
 alias kctx='kubectx'
-alias kns='kubens'
+alias kns='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY kubens'
 alias watch='watch '
 alias ccat='pygmentize -g -O style=inkpot'
 
@@ -170,7 +170,7 @@ function pwrgen(){
 
 # Enable auto-completion of kubectl
 source <(kubectl completion bash)
-alias k='kubectl'
+alias k='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY kubectl'
 complete -o default -F __start_kubectl k
 
 # The plugin manager for kubectl command-line tool
