@@ -89,6 +89,11 @@ function publicip(){
   done
 }
 
+# Check specific public IP
+function checkip(){
+  curl -s ipinfo.io/$1
+}
+
 # Filesystem Markers & Jump
 export MARKPATH=$HOME/.marks
 
