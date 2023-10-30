@@ -36,6 +36,7 @@ lz4
 mtr
 mycli
 nvm
+postgresql@14
 pwgen
 pygments
 python@3.11
