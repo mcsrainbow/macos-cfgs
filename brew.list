@@ -9,6 +9,7 @@ cmake
 coreutils
 dos2unix
 findutils
+git-crypt
 git-lfs
 gnu-sed
 gnu-tar
