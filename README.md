@@ -8,7 +8,9 @@ My Personal macOS Configurations
 .
 ├── Library
 │   └── Fonts
-│       └── JetBrainsMono
+│       ├── JetBrainsMono
+│       │   └── README.md
+│       └── MapleMono-SC-NF
 │           └── README.md
 ├── README.md
 ├── Workspace
@@ -45,7 +47,7 @@ My Personal macOS Configurations
     ├── tabby_bash-starship_ohmyzsh-p10k.jpg
     └── vim_vimrc.jpg
 
-14 directories, 25 files
+15 directories, 26 files
 ```
 
 ## Screenshots
