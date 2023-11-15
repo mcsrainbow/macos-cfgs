@@ -72,8 +72,8 @@ disabled = true
 # Display the current Kubernetes context name and namespace
 [kubernetes]
 disabled = true
-symbol='☸|'
-format = 'in [$symbol$context:$namespace](green) '
+symbol='⎈ '
+format = 'in [$symbol$context/$namespace](green) '
 
 # Disable the AWS module to not show the current AWS region and profile
 [aws]
