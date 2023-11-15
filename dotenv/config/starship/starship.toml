@@ -12,7 +12,6 @@ command_timeout = 500
 # Move the $time to the first line and remove the modules barely used
 format = """
 $shlvl\
-$kubernetes\
 $directory\
 $git_branch\
 $git_commit\
@@ -46,6 +45,7 @@ $aws\
 $gcloud\
 $openstack\
 $azure\
+$kubernetes\
 $env_var\
 $custom\
 $sudo\
@@ -71,9 +71,9 @@ disabled = true
 
 # Display the current Kubernetes context name and namespace
 [kubernetes]
-disabled = false
+disabled = true
 symbol='☸|'
-format = '[\($symbol$context:$namespace\)](green) in '
+format = 'in [$symbol$context:$namespace](green) '
 
 # Disable the AWS module to not show the current AWS region and profile
 [aws]
