@@ -158,7 +158,7 @@ function kubeoff(){
 
 # Generate random password
 function pwrgen(){
-  if [[ $1 == ?(-)+([[:digit:]]) ]]; then
+  if [[ $1 =~ ^[0-9]+$ ]]; then
     local passwdlen=$1
   else
     local passwdlen=15
