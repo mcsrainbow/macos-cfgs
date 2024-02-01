@@ -20,7 +20,7 @@ alias k='kubectl'
 alias kctx='kubectx'
 alias kns='kubens'
 alias watch='watch '
-alias ccat='pygmentize -g -O style=inkpot'
+alias ccat='bat --theme="Solarized (dark)" --style=plain'
 
 # Show current Kubernetes context and namespace with colors in shell prompt
 export KUBE_PS1_SYMBOL_ENABLE=false
