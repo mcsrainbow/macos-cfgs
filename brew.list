@@ -9,6 +9,7 @@ bat
 cmake
 coreutils
 dos2unix
+dust
 findutils
 git-crypt
 git-lfs
