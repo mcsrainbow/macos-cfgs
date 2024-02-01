@@ -28,7 +28,7 @@ alias date='gdate'
 alias kctx='kubectx'
 alias kns='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY kubens'
 alias watch='watch '
-alias ccat='pygmentize -g -O style=inkpot'
+alias ccat='bat --theme="Solarized (dark)" --style=plain'
 
 # Log the history commands with time stamps
 export HISTFILESIZE="1000000000"
