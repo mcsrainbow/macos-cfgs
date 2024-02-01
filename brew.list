@@ -5,6 +5,7 @@ autojump
 awscli
 bash
 bash-completion
+bat
 cmake
 coreutils
 dos2unix
