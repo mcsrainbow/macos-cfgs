@@ -75,6 +75,14 @@ disabled = true
 symbol='⎈ '
 format = 'in [$symbol$context/$namespace](green) '
 
+# Display the java module with style not dimmed
+[java]
+style='red'
+
+# Display the conda module with style not bold
+[conda]
+style='green'
+
 # Disable the AWS module to not show the current AWS region and profile
 [aws]
 disabled = true
