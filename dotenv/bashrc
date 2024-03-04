@@ -27,6 +27,7 @@ alias sed='gsed'
 alias date='gdate'
 alias kctx='kubectx'
 alias kns='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY kubens'
+alias k9s='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY k9s'
 alias watch='watch '
 alias ccat='bat --theme="Solarized (dark)" --style=plain'
 
@@ -128,6 +129,22 @@ function _marks(){
 complete -F _marks jump
 complete -F _marks unmark
 
+# Faster change directory up N times
+function up(){
+  local arg=""
+  local num=$1
+  if [[ ! -z "${num##*[!0-9]*}" ]]; then
+    for i in $(seq 1 $num); do
+      arg+="../"
+    done
+    local cmd="cd ${arg}"
+    eval "$cmd;pwd"
+  else
+    local cmd="cd .."
+    eval "$cmd;pwd"
+  fi
+}
+
 # Enable auto-completion of smartroutes
 function _routes(){
   COMPREPLY=()
@@ -191,7 +208,15 @@ source /opt/homebrew/etc/profile.d/autojump.sh
 # Enable ble.sh
 source $HOME/.local/share/blesh/ble.sh
 
-# Enable Proxy
-export HTTPS_PROXY="http://127.0.0.1:7890"
-export HTTP_PROXY="http://127.0.0.1:7890"
-export ALL_PROXY="socks5://127.0.0.1:7890"
+# Enable or disable HTTP proxy
+function proxyon(){
+  local socket="127.0.0.1:7890"
+  for _proxy in HTTPS_PROXY=http://$socket HTTP_PROXY=http://$socket ALL_PROXY=socks5://$socket; do
+    eval export ${_proxy}
+    echo ${_proxy}
+  done
+}
+
+function proxyoff(){
+  eval unset HTTP_PROXY HTTPS_PROXY ALL_PROXY
+}
