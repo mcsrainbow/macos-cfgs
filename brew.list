@@ -11,6 +11,7 @@ coreutils
 dos2unix
 dust
 findutils
+gawk
 git-crypt
 git-lfs
 gnu-sed
