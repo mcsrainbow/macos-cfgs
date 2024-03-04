@@ -72,16 +72,16 @@ disabled = true
 # Display the current Kubernetes context name and namespace
 [kubernetes]
 disabled = true
-symbol='⎈ '
+symbol = '⎈ '
 format = 'in [$symbol$context/$namespace](green) '
 
 # Display the java module with style not dimmed
 [java]
-style='red'
+style = 'red'
 
 # Display the conda module with style not bold
 [conda]
-style='green'
+style = 'green'
 
 # Disable the AWS module to not show the current AWS region and profile
 [aws]
@@ -101,8 +101,8 @@ min_time = 4_000 # Shortest duration to show time for (in milliseconds)
 
 # Show the path to your current directory
 [directory]
-truncation_symbol = ' '
-home_symbol = ' ~'
+truncation_symbol = '  .../'
+home_symbol = '  ~'
 truncation_length = 5 # The number of parent folders that the current directory should be truncated to
 truncate_to_repo = false # Whether or not to truncate to the root of the git repo that you're currently in
 
