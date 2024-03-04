@@ -73,7 +73,7 @@ disabled = true
 [kubernetes]
 disabled = true
 symbol = '⎈ '
-format = 'in [$symbol$context/$namespace](green) '
+format = 'at [$symbol$context/$namespace](cyan) '
 
 # Display the java module with style not dimmed
 [java]
