@@ -188,6 +188,9 @@ source /opt/homebrew/opt/nvm/nvm.sh
 # Enable autojump
 source /opt/homebrew/etc/profile.d/autojump.sh
 
+# Enable ble.sh
+source $HOME/.local/share/blesh/ble.sh
+
 # Enable Proxy
 export HTTPS_PROXY="http://127.0.0.1:7890"
 export HTTP_PROXY="http://127.0.0.1:7890"
