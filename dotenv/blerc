@@ -1,0 +1,11 @@
+# blerc
+
+# Set Highlight Colors with color codes: ble-color-show
+ble-face auto_complete='fg=246,bg=236'
+ble-face syntax_error='fg=red,bold,italic,bg=black'
+
+# Disable ambiguous completion
+bleopt complete_ambiguous=
+
+# Disable menu-complete by TAB
+bleopt complete_menu_complete=
