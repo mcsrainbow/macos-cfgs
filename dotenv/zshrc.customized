@@ -62,6 +62,22 @@ function checkip(){
   curl -s ipinfo.io/$1
 }
 
+# Faster change directory up N times
+function up(){
+  local arg=""
+  local num=$1
+  if [[ ! -z "${num##*[!0-9]*}" ]]; then
+    for i in $(seq 1 $num); do
+      arg+="../"
+    done
+    local cmd="cd ${arg}"
+    eval "$cmd;pwd"
+  else
+    local cmd="cd .."
+    eval "$cmd;pwd"
+  fi
+}
+
 # Generate random password
 function pwrgen(){
   if [[ $1 =~ ^[0-9]+$ ]]; then
@@ -77,4 +93,17 @@ function pwrgen(){
   done
   local passwdout=$(echo ${passwdstr} | sed -r 's/(.{'"$randomnum"'})/\1_/' )
   echo $passwdout
+}
+
+# Enable or disable HTTP proxy
+function proxyon(){
+  local socket="127.0.0.1:7890"
+  for _proxy in HTTPS_PROXY=http://$socket HTTP_PROXY=http://$socket ALL_PROXY=socks5://$socket; do
+    eval export ${_proxy}
+    echo ${_proxy}
+  done
+}
+
+function proxyoff(){
+  eval unset HTTP_PROXY HTTPS_PROXY ALL_PROXY
 }
