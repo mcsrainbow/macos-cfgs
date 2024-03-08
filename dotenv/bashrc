@@ -211,7 +211,7 @@ source $HOME/.local/share/blesh/ble.sh
 # Enable or disable HTTP proxy
 function proxyon(){
   local socket="127.0.0.1:7890"
-  for _proxy in HTTPS_PROXY=http://$socket HTTP_PROXY=http://$socket ALL_PROXY=socks5://$socket; do
+  for _proxy in HTTP_PROXY=http://$socket HTTPS_PROXY=http://$socket ALL_PROXY=socks5://$socket; do
     eval export ${_proxy}
     echo ${_proxy}
   done
