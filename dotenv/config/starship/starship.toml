@@ -7,7 +7,7 @@
 add_newline = true
 
 ## Timeout for commands executed by starship (in milliseconds)
-command_timeout = 500
+command_timeout = 5000
 
 # Move the $time to the first line and remove the modules barely used
 format = """
