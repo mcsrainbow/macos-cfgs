@@ -187,7 +187,7 @@ function pwrgen(){
     local randomnum=$(($RANDOM%${randomlen}))
   done
   local passwdout=$(echo ${passwdstr} | sed -r 's/(.{'"$randomnum"'})/\1_/' )
-  echo ${_tput_yellow}${passwdout}${_tput_reset}
+  echo "${_tput_yellow}${passwdout}${_tput_reset}"
 }
 
 # Enable auto-completion of kubectl
@@ -212,11 +212,12 @@ source $HOME/.local/share/blesh/ble.sh
 function proxyon(){
   local socket="127.0.0.1:7890"
   for _proxy in HTTP_PROXY=http://$socket HTTPS_PROXY=http://$socket ALL_PROXY=socks5://$socket; do
-    eval export ${_proxy}
-    echo ${_proxy}
+    eval "export ${_proxy}"
+    echo "export ${_proxy}"
   done
 }
 
 function proxyoff(){
-  eval unset HTTP_PROXY HTTPS_PROXY ALL_PROXY
+  eval "unset HTTP_PROXY HTTPS_PROXY ALL_PROXY"
+  echo "unset HTTP_PROXY HTTPS_PROXY ALL_PROXY"
 }
