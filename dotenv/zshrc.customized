@@ -90,7 +90,7 @@ function up(){
   fi
 }
 
-# Generate random password
+# Generate a random password
 function pwrgen(){
   if [[ $1 =~ ^[0-9]+$ ]]; then
     local passwdlen=$1
