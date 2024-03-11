@@ -174,7 +174,7 @@ function kubeoff(){
   sed -i '/\[kubernetes\]/!b;n;s/disabled = false/disabled = true/' $STARSHIP_CONFIG
 }
 
-# Generate random password
+# Generate a random password
 function pwrgen(){
   if [[ $1 =~ ^[0-9]+$ ]]; then
     local passwdlen=$1
