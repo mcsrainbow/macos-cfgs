@@ -1,5 +1,8 @@
 # .bashrc
 
+# More reliable way to source ble.sh at the TOP of .bashrc
+[[ $- == *i* ]] && source $HOME/.local/share/blesh/ble.sh --noattach
+
 # Source global definitions
 if [[ -f /etc/bashrc ]]; then
   . /etc/bashrc
@@ -204,9 +207,6 @@ source /opt/homebrew/opt/nvm/nvm.sh
 # Enable autojump
 source /opt/homebrew/etc/profile.d/autojump.sh
 
-# Enable ble.sh
-source $HOME/.local/share/blesh/ble.sh
-
 # Enable or disable HTTP proxy
 declare -A _proxy_protocols=(
   ["HTTP_PROXY"]="http"
@@ -228,3 +228,8 @@ function proxyoff(){
   eval "${cmd}"
   echo "${cmd}"
 }
+
+# More reliable way to enable ble.sh at the END of .bashrc
+# With ble-attach are performed, standard streams (stdin, stdout, and stderr)
+# should not be redirected but should be connected to the controlling TTY of the current session
+[[ ${BLE_VERSION-} ]] && ble-attach
