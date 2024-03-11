@@ -94,15 +94,12 @@ function pwrgen(){
   if [[ $1 =~ ^[0-9]+$ ]]; then
     local passwdlen=$1
   else
-    local passwdlen=15
+    local passwdlen=16
   fi
+
   local passwdstr=$(pwgen -cnsB ${passwdlen} 1)
-  local randomlen=$((${passwdlen}-1))
-  local randomnum=$(($RANDOM%${randomlen}))
-  while [[ ${randomnum} -le 1 ]]; do
-    local randomnum=$(($RANDOM%${randomlen}))
-  done
-  local passwdout=$(echo ${passwdstr} | sed -r 's/(.{'"$randomnum"'})/\1_/' )
+  local randomnum=$((RANDOM % (passwdlen - 2) + 2))
+  local passwdout=$(echo ${passwdstr} | sed "s/./_/$randomnum")
   echo -e "\033[33m${passwdout}\033[0m"
 }
 
