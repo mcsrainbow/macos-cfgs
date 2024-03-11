@@ -52,6 +52,12 @@ function publicip(){
     ifconfig.me
     ifconfig.io
   )
+
+  if [[ -n "$HTTP_PROXY" ]]; then
+    local message="NOTICE: HTTP_PROXY has been set"
+    echo -e "\033[33m${message}\033[0m"
+  fi
+
   for _website in ${website_list[@]}; do
     echo "${_website}: $(curl -s ${_website})"
   done
@@ -59,6 +65,11 @@ function publicip(){
 
 # Check specific public IP
 function checkip(){
+  if [[ -n "$HTTP_PROXY" ]]; then
+    local message="NOTICE: HTTP_PROXY has been set"
+    echo -e "\033[33m${message}\033[0m"
+  fi
+
   curl -s ipinfo.io/$1
 }
 
@@ -92,19 +103,26 @@ function pwrgen(){
     local randomnum=$(($RANDOM%${randomlen}))
   done
   local passwdout=$(echo ${passwdstr} | sed -r 's/(.{'"$randomnum"'})/\1_/' )
-  echo $passwdout
+  echo -e "\033[33m${passwdout}\033[0m"
 }
 
 # Enable or disable HTTP proxy
+typeset -A _proxy_protocols=(
+  ["HTTP_PROXY"]="http"
+  ["HTTPS_PROXY"]="http"
+  ["ALL_PROXY"]="socks5"
+)
+
 function proxyon(){
   local socket="127.0.0.1:7890"
-  for _proxy in HTTP_PROXY=http://$socket HTTPS_PROXY=http://$socket ALL_PROXY=socks5://$socket; do
-    eval "export ${_proxy}"
-    echo "export ${_proxy}"
+  for _proxy_type in "${(@k)_proxy_protocols}"; do
+    eval "export ${_proxy_type}=${_proxy_protocols[$_proxy_type]}://${socket}"
+    printenv | /usr/bin/grep -w ${_proxy_type}
   done
 }
 
 function proxyoff(){
-  eval "unset HTTP_PROXY HTTPS_PROXY ALL_PROXY"
-  echo "unset HTTP_PROXY HTTPS_PROXY ALL_PROXY"
+  local cmd="unset ${(@k)_proxy_protocols}"
+  eval "${cmd}"
+  echo "${cmd}"
 }
