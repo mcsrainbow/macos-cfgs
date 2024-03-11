@@ -1,7 +1,7 @@
 # .bashrc
 
 # Source global definitions
-if [ -f /etc/bashrc ]; then
+if [[ -f /etc/bashrc ]]; then
   . /etc/bashrc
 fi
 
@@ -71,27 +71,28 @@ _tput_reset=${_nvt_open}$(tput sgr0)${_nvt_close}
 function publicip(){
   local website_list=(
     ipinfo.io
+    api.ipify.org
     checkip.amazonaws.com
     ifconfig.co
     ifconfig.me
     ifconfig.io
   )
-  echo "${_tput_yellow}With Proxy:${_tput_reset}"
-  for _website in ${website_list[@]}; do
-    echo " ${_website}: $(curl -s ${_website})"
-  done
 
-  echo ""
+  if [[ -n "$HTTP_PROXY" ]]; then
+    echo "${_tput_yellow}NOTICE: HTTP_PROXY has been set${_tput_reset}"
+  fi
 
-  echo "${_tput_yellow}Direct without Proxy:${_tput_reset}"
-  env_unset_cmd="env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY"
   for _website in ${website_list[@]}; do
-    echo "${_website}: $(${env_unset_cmd} curl -s ${_website})"
+    echo "${_website}: $(curl -s ${_website})"
   done
 }
 
 # Check specific public IP
 function checkip(){
+  if [[ -n "$HTTP_PROXY" ]]; then
+    echo "${_tput_yellow}NOTICE: HTTP_PROXY has been set${_tput_reset}"
+  fi
+
   curl -s ipinfo.io/$1
 }
 
@@ -209,15 +210,22 @@ source /opt/homebrew/etc/profile.d/autojump.sh
 source $HOME/.local/share/blesh/ble.sh
 
 # Enable or disable HTTP proxy
+declare -A _proxy_protocols=(
+  ["HTTP_PROXY"]="http"
+  ["HTTPS_PROXY"]="http"
+  ["ALL_PROXY"]="socks5"
+)
+
 function proxyon(){
   local socket="127.0.0.1:7890"
-  for _proxy in HTTP_PROXY=http://$socket HTTPS_PROXY=http://$socket ALL_PROXY=socks5://$socket; do
-    eval "export ${_proxy}"
-    echo "export ${_proxy}"
+  for _proxy_type in "${!_proxy_protocols[@]}"; do
+    eval "export ${_proxy_type}=${_proxy_protocols[$_proxy_type]}://${socket}"
+    printenv | /usr/bin/grep -w ${_proxy_type}
   done
 }
 
 function proxyoff(){
-  eval "unset HTTP_PROXY HTTPS_PROXY ALL_PROXY"
-  echo "unset HTTP_PROXY HTTPS_PROXY ALL_PROXY"
+  local cmd="unset ${!_proxy_protocols[@]}"
+  eval "${cmd}"
+  echo "${cmd}"
 }
