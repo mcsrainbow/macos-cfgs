@@ -230,6 +230,6 @@ function proxyoff(){
 }
 
 # More reliable way to enable ble.sh at the END of .bashrc
-# With ble-attach are performed, standard streams (stdin, stdout, and stderr)
-# should not be redirected but should be connected to the controlling TTY of the current session
+# With ble-attach performed, standard streams (stdin, stdout, and stderr) should
+# remain linked to the controlling TTY of the current session, instead of being redirected
 [[ ${BLE_VERSION-} ]] && ble-attach
