@@ -81,8 +81,9 @@ function publicip(){
     echo "${_tput_yellow}NOTICE: HTTP_PROXY has been set${_tput_reset}"
   fi
 
-  for _website in ${website_list[@]}; do
-    echo "${_website}: $(curl -s ${_website})"
+  local website
+  for website in ${website_list[@]}; do
+    echo "${website}: $(curl -s ${website})"
   done
 }
 
@@ -133,8 +134,9 @@ complete -F _marks unmark
 function up(){
   local arg=""
   local num=$1
+  local idx
   if [[ ! -z "${num##*[!0-9]*}" ]]; then
-    for i in $(seq 1 $num); do
+    for idx in $(seq 1 $num); do
       arg+="../"
     done
     local cmd="cd ${arg}"
@@ -214,9 +216,10 @@ declare -A _proxy_protocols=(
 
 function proxyon(){
   local socket="127.0.0.1:7890"
-  for _proxy_type in "${!_proxy_protocols[@]}"; do
-    eval "export ${_proxy_type}=${_proxy_protocols[$_proxy_type]}://${socket}"
-    printenv | /usr/bin/grep -w ${_proxy_type}
+  local proxy_type
+  for proxy_type in "${!_proxy_protocols[@]}"; do
+    eval "export ${proxy_type}=${_proxy_protocols[$proxy_type]}://${socket}"
+    printenv | /usr/bin/grep -w ${proxy_type}
   done
 }
 
