@@ -47,7 +47,6 @@ bindkey '^ ' autosuggest-accept
 function publicip(){
   local website_list=(
     ipinfo.io
-    api.ipify.org
     checkip.amazonaws.com
     ifconfig.co
     ifconfig.me

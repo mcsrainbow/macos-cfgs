@@ -71,7 +71,6 @@ _tput_reset=${_nvt_open}$(tput sgr0)${_nvt_close}
 function publicip(){
   local website_list=(
     ipinfo.io
-    api.ipify.org
     checkip.amazonaws.com
     ifconfig.co
     ifconfig.me
