@@ -27,7 +27,6 @@ ipcalc
 iperf
 k3d
 k9s
-kt-connect
 kube-linter
 kube-ps1
 kubectx
