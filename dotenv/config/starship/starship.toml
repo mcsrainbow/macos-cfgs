@@ -60,6 +60,13 @@ $container\
 $shell\
 $character"""
 
+# Show the path to your current directory
+[directory]
+truncation_symbol = ' .../'
+home_symbol = ' ~'
+truncation_length = 5 # The number of parent folders that the current directory should be truncated to
+truncate_to_repo = false # Whether or not to truncate to the root of the git repo that you're currently in
+
 # Replace the '❯' symbol in the prompt with '➜'
 [character]
 success_symbol = '[➜](bold green)'
@@ -95,16 +102,14 @@ disabled = true
 [openstack]
 disabled = true
 
+# Show the selected environment variables
+[env_var.HTTP_PROXY]
+variable = 'HTTP_PROXY'
+format = "with [HTTP_PROXY](bold blue) "
+
 # Show how long the last command took to execute
 [cmd_duration]
 min_time = 4_000 # Shortest duration to show time for (in milliseconds)
-
-# Show the path to your current directory
-[directory]
-truncation_symbol = ' .../'
-home_symbol = ' ~'
-truncation_length = 5 # The number of parent folders that the current directory should be truncated to
-truncate_to_repo = false # Whether or not to truncate to the root of the git repo that you're currently in
 
 # Show the current local time
 [time]
