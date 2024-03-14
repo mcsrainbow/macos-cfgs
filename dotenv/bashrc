@@ -98,7 +98,7 @@ function checkip(){
   curl -s ipinfo.io/$1
 }
 
-# Enable NVM
+# NVM
 function enable_nvm(){
   export NVM_DIR=$HOME/.nvm
   source /opt/homebrew/opt/nvm/nvm.sh
