@@ -29,11 +29,7 @@ export KUBE_PS1_SYMBOL_ENABLE=false
 PROMPT='$(kube_ps1)'$PROMPT
 
 # The plugin manager for kubectl command-line tool
-export PATH="$HOME/.krew/bin:$PATH"
-
-# Enable NVM
-export NVM_DIR="$HOME/.nvm"
-source /opt/homebrew/opt/nvm/nvm.sh
+export PATH=$HOME/.krew/bin:$PATH
 
 # Increase history size
 export SAVEHIST=1000000000
@@ -42,6 +38,17 @@ export HISTORY_IGNORE="(history*|pwd|ls|ll|la|lrt|lvh|clear|exit)"
 
 # Bind ctrl + space to accept the current suggestion
 bindkey '^ ' autosuggest-accept
+
+# Enable NVM
+function enable_nvm(){
+  export NVM_DIR=$HOME/.nvm
+  source /opt/homebrew/opt/nvm/nvm.sh
+}
+
+# Anaconda
+function enable_conda() {
+  source /opt/homebrew/anaconda3/etc/profile.d/conda.sh
+}
 
 # Check current public IP
 function publicip(){
@@ -116,13 +123,12 @@ function proxyon(){
   local socket="127.0.0.1:7890"
   local proxy_type
   for proxy_type in "${(@k)_proxy_protocols}"; do
-    eval "export ${proxy_type}=${_proxy_protocols[$proxy_type]}://${socket}"
+    export ${proxy_type}=${_proxy_protocols[$proxy_type]}://${socket}
     printenv | /usr/bin/grep -w ${proxy_type}
   done
 }
 
 function proxyoff(){
-  local cmd="unset ${(@k)_proxy_protocols}"
-  eval "${cmd}"
-  echo "${cmd}"
+  unset ${(@k)_proxy_protocols}
+  echo "unset ${(@k)_proxy_protocols}"
 }
