@@ -22,12 +22,6 @@ alias kns='kubens'
 alias watch='watch '
 alias ccat='bat --theme="Solarized (dark)" --style=plain'
 
-# Show current Kubernetes context and namespace with colors in shell prompt
-export KUBE_PS1_SYMBOL_ENABLE=false
-
-# Customized PS1
-PROMPT='$(kube_ps1)'$PROMPT
-
 # The plugin manager for kubectl command-line tool
 export PATH=$HOME/.krew/bin:$PATH
 
