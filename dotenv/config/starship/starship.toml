@@ -78,7 +78,7 @@ disabled = true
 
 # Display the current Kubernetes context name and namespace
 [kubernetes]
-disabled = false
+disabled = true
 symbol = '⎈ '
 format = 'at [$symbol$context/$namespace](bold cyan) '
 
@@ -105,7 +105,7 @@ disabled = true
 # Show the selected environment variables
 [env_var.HTTP_PROXY]
 variable = 'HTTP_PROXY'
-format = "with [HTTP_PROXY](bold blue) "
+format = "with [↔ $env_value](bold blue) "
 
 # Show how long the last command took to execute
 [cmd_duration]
