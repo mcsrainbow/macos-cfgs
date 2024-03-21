@@ -8,6 +8,7 @@ bash-completion
 bat
 cmake
 coreutils
+csvkit
 dos2unix
 dust
 findutils
