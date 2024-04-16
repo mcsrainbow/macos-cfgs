@@ -44,7 +44,6 @@ pygments
 readline
 sqlite
 starship
-terraform
 tldr
 tmux
 trash-cli
