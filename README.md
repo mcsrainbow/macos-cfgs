@@ -20,6 +20,7 @@ My Personal macOS Configurations
 ├── dotenv
 │   ├── bash_profile
 │   ├── bashrc
+│   ├── blerc
 │   ├── config
 │   │   └── starship
 │   │       ├── README.md
@@ -47,7 +48,7 @@ My Personal macOS Configurations
     ├── tabby_bash-starship_ohmyzsh-p10k.jpg
     └── vim_vimrc.jpg
 
-15 directories, 26 files
+15 directories, 27 files
 ```
 
 ## Screenshots
