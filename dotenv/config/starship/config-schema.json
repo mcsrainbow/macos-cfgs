@@ -354,6 +354,29 @@
         }
       ]
     },
+    "direnv": {
+      "default": {
+        "allowed_msg": "allowed",
+        "denied_msg": "denied",
+        "detect_extensions": [],
+        "detect_files": [
+          ".envrc"
+        ],
+        "detect_folders": [],
+        "disabled": true,
+        "format": "[$symbol$loaded/$allowed]($style) ",
+        "loaded_msg": "loaded",
+        "not_allowed_msg": "not allowed",
+        "style": "bold orange",
+        "symbol": "direnv ",
+        "unloaded_msg": "not loaded"
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/DirenvConfig"
+        }
+      ]
+    },
     "docker_context": {
       "default": {
         "detect_extensions": [],
@@ -517,6 +540,20 @@
       "allOf": [
         {
           "$ref": "#/definitions/FossilBranchConfig"
+        }
+      ]
+    },
+    "fossil_metrics": {
+      "default": {
+        "added_style": "bold green",
+        "deleted_style": "bold red",
+        "disabled": true,
+        "format": "([+$added]($added_style) )([-$deleted]($deleted_style) )",
+        "only_nonzero_diffs": true
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/FossilMetricsConfig"
         }
       ]
     },
@@ -784,6 +821,7 @@
     },
     "hostname": {
       "default": {
+        "detect_env_vars": [],
         "disabled": false,
         "format": "[$ssh_symbol$hostname]($style) in ",
         "ssh_only": true,
@@ -892,6 +930,7 @@
     "kubernetes": {
       "default": {
         "context_aliases": {},
+        "contexts": [],
         "detect_extensions": [],
         "detect_files": [],
         "detect_folders": [],
@@ -1126,6 +1165,8 @@
         "format": "[$symbol]($style)",
         "style": "bold white",
         "symbols": {
+          "AIX": "➿ ",
+          "AlmaLinux": "💠 ",
           "Alpaquita": "🔔 ",
           "Alpine": "🏔️ ",
           "Amazon": "🙂 ",
@@ -1143,6 +1184,7 @@
           "Gentoo": "🗜️ ",
           "HardenedBSD": "🛡️ ",
           "Illumos": "🐦 ",
+          "Kali": "🐉 ",
           "Linux": "🐧 ",
           "Mabox": "📦 ",
           "Macos": "🍎 ",
@@ -1160,10 +1202,13 @@
           "RedHatEnterprise": "🎩 ",
           "Redhat": "🎩 ",
           "Redox": "🧪 ",
+          "RockyLinux": "💠 ",
           "SUSE": "🦎 ",
           "Solus": "⛵ ",
           "Ubuntu": "🎯 ",
+          "Ultramarine": "🔷 ",
           "Unknown": "❓ ",
+          "Void": "  ",
           "Windows": "🪟 ",
           "openEuler": "🦉 ",
           "openSUSE": "🦎 "
@@ -1326,6 +1371,27 @@
         }
       ]
     },
+    "quarto": {
+      "default": {
+        "detect_extensions": [
+          "qmd"
+        ],
+        "detect_files": [
+          "_quarto.yml"
+        ],
+        "detect_folders": [],
+        "disabled": false,
+        "format": "via [$symbol($version )]($style)",
+        "style": "bold #75AADB",
+        "symbol": "⨁ ",
+        "version_format": "v${raw}"
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/QuartoConfig"
+        }
+      ]
+    },
     "raku": {
       "default": {
         "detect_extensions": [
@@ -1381,7 +1447,7 @@
           "Rsx"
         ],
         "detect_files": [
-          ".Rprofile"
+          "DESCRIPTION"
         ],
         "detect_folders": [
           ".Rproj.user"
@@ -1655,8 +1721,30 @@
         }
       ]
     },
+    "typst": {
+      "default": {
+        "detect_extensions": [
+          "typ"
+        ],
+        "detect_files": [
+          "template.typ"
+        ],
+        "detect_folders": [],
+        "disabled": false,
+        "format": "via [$symbol($version )]($style)",
+        "style": "bold #0093A7",
+        "symbol": "t ",
+        "version_format": "v${raw}"
+      },
+      "allOf": [
+        {
+          "$ref": "#/definitions/TypstConfig"
+        }
+      ]
+    },
     "username": {
       "default": {
+        "detect_env_vars": [],
         "disabled": false,
         "format": "[$user]($style) in ",
         "show_always": false,
@@ -1778,6 +1866,10 @@
       "default": true,
       "type": "boolean"
     },
+    "follow_symlinks": {
+      "default": true,
+      "type": "boolean"
+    },
     "palette": {
       "type": [
         "string",
@@ -1806,7 +1898,7 @@
   "definitions": {
     "AwsConfig": {
       "title": "AWS",
-      "description": "The `aws` module shows the current AWS region and profile and an expiration timer when using temporary credentials. The output of the module uses the `AWS_REGION`, `AWS_DEFAULT_REGION`, and `AWS_PROFILE` env vars and the `~/.aws/config` and `~/.aws/credentials` files as required.\n\nThe module will display a profile only if its credentials are present in `~/.aws/credentials` or if a `credential_process` or `sso_start_url` are defined in `~/.aws/config`. Alternatively, having any of the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, or `AWS_SESSION_TOKEN` env vars defined will also suffice. If the option `force_display` is set to `true`, all available information will be displayed even if no credentials per the conditions above are detected.\n\nWhen using [aws-vault](https://github.com/99designs/aws-vault) the profile is read from the `AWS_VAULT` env var and the credentials expiration date is read from the `AWS_SESSION_EXPIRATION` or `AWS_CREDENTIAL_EXPIRATION` var.\n\nWhen using [awsu](https://github.com/kreuzwerker/awsu) the profile is read from the `AWSU_PROFILE` env var.\n\nWhen using [`AWSume`](https://awsu.me) the profile is read from the `AWSUME_PROFILE` env var and the credentials expiration date is read from the `AWSUME_EXPIRATION` env var.",
+      "description": "The `aws` module shows the current AWS region and profile and an expiration timer when using temporary credentials. The output of the module uses the `AWS_REGION`, `AWS_DEFAULT_REGION`, and `AWS_PROFILE` env vars and the `~/.aws/config` and `~/.aws/credentials` files as required.\n\nThe module will display a profile only if its credentials are present in `~/.aws/credentials` or if a `credential_process` or `sso_start_url` are defined in `~/.aws/config`. Alternatively, having any of the `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, or `AWS_SESSION_TOKEN` env vars defined will also suffice. If the option `force_display` is set to `true`, all available information will be displayed even if no credentials per the conditions above are detected.\n\nWhen using [aws-vault](https://github.com/99designs/aws-vault) the profile is read from the `AWS_VAULT` env var and the credentials expiration date is read from the `AWS_SESSION_EXPIRATION` or `AWS_CREDENTIAL_EXPIRATION` var.\n\nWhen using [awsu](https://github.com/kreuzwerker/awsu) the profile is read from the `AWSU_PROFILE` env var.\n\nWhen using [`AWSume`](https://awsu.me) the profile is read from the `AWSUME_PROFILE` env var and the credentials expiration date is read from the `AWSUME_EXPIRATION` env var.\n\nWhen using [aws-sso-cli](https://github.com/synfinatic/aws-sso-cli) the profile is read from the `AWS_SSO_PROFILE` env var.",
       "type": "object",
       "properties": {
         "format": {
@@ -2666,6 +2758,71 @@
       },
       "additionalProperties": false
     },
+    "DirenvConfig": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "default": "[$symbol$loaded/$allowed]($style) ",
+          "type": "string"
+        },
+        "symbol": {
+          "default": "direnv ",
+          "type": "string"
+        },
+        "style": {
+          "default": "bold orange",
+          "type": "string"
+        },
+        "disabled": {
+          "default": true,
+          "type": "boolean"
+        },
+        "detect_extensions": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detect_files": {
+          "default": [
+            ".envrc"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detect_folders": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allowed_msg": {
+          "default": "allowed",
+          "type": "string"
+        },
+        "not_allowed_msg": {
+          "default": "not allowed",
+          "type": "string"
+        },
+        "denied_msg": {
+          "default": "denied",
+          "type": "string"
+        },
+        "loaded_msg": {
+          "default": "loaded",
+          "type": "string"
+        },
+        "unloaded_msg": {
+          "default": "not loaded",
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
     "DockerContextConfig": {
       "type": "object",
       "properties": {
@@ -3060,6 +3217,32 @@
         "truncation_symbol": {
           "default": "…",
           "type": "string"
+        },
+        "disabled": {
+          "default": true,
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "FossilMetricsConfig": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "default": "([+$added]($added_style) )([-$deleted]($deleted_style) )",
+          "type": "string"
+        },
+        "added_style": {
+          "default": "bold green",
+          "type": "string"
+        },
+        "deleted_style": {
+          "default": "bold red",
+          "type": "string"
+        },
+        "only_nonzero_diffs": {
+          "default": true,
+          "type": "boolean"
         },
         "disabled": {
           "default": true,
@@ -3699,6 +3882,13 @@
           "default": ".",
           "type": "string"
         },
+        "detect_env_vars": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "format": {
           "default": "[$ssh_symbol$hostname]($style) in ",
           "type": "string"
@@ -3973,6 +4163,58 @@
           "items": {
             "type": "string"
           }
+        },
+        "contexts": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KubernetesContextConfig"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "KubernetesContextConfig": {
+      "type": "object",
+      "properties": {
+        "context_pattern": {
+          "default": "",
+          "type": "string"
+        },
+        "user_pattern": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "symbol": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "style": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "context_alias": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "user_alias": {
+          "default": null,
+          "type": [
+            "string",
+            "null"
+          ]
         }
       },
       "additionalProperties": false
@@ -4434,6 +4676,8 @@
         },
         "symbols": {
           "default": {
+            "AIX": "➿ ",
+            "AlmaLinux": "💠 ",
             "Alpaquita": "🔔 ",
             "Alpine": "🏔️ ",
             "Amazon": "🙂 ",
@@ -4451,6 +4695,7 @@
             "Gentoo": "🗜️ ",
             "HardenedBSD": "🛡️ ",
             "Illumos": "🐦 ",
+            "Kali": "🐉 ",
             "Linux": "🐧 ",
             "Mabox": "📦 ",
             "Macos": "🍎 ",
@@ -4468,10 +4713,13 @@
             "RedHatEnterprise": "🎩 ",
             "Redhat": "🎩 ",
             "Redox": "🧪 ",
+            "RockyLinux": "💠 ",
             "SUSE": "🦎 ",
             "Solus": "⛵ ",
             "Ubuntu": "🎯 ",
+            "Ultramarine": "🔷 ",
             "Unknown": "❓ ",
+            "Void": "  ",
             "Windows": "🪟 ",
             "openEuler": "🦉 ",
             "openSUSE": "🦎 "
@@ -4831,6 +5079,57 @@
         }
       ]
     },
+    "QuartoConfig": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "default": "via [$symbol($version )]($style)",
+          "type": "string"
+        },
+        "version_format": {
+          "default": "v${raw}",
+          "type": "string"
+        },
+        "symbol": {
+          "default": "⨁ ",
+          "type": "string"
+        },
+        "style": {
+          "default": "bold #75AADB",
+          "type": "string"
+        },
+        "disabled": {
+          "default": false,
+          "type": "boolean"
+        },
+        "detect_extensions": {
+          "default": [
+            "qmd"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detect_files": {
+          "default": [
+            "_quarto.yml"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detect_folders": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "RakuConfig": {
       "type": "object",
       "properties": {
@@ -4974,7 +5273,7 @@
         },
         "detect_files": {
           "default": [
-            ".Rprofile"
+            "DESCRIPTION"
           ],
           "type": "array",
           "items": {
@@ -5184,6 +5483,12 @@
         "powershell_indicator": {
           "default": "psh",
           "type": "string"
+        },
+        "pwsh_indicator": {
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "ion_indicator": {
           "default": "ion",
@@ -5604,9 +5909,67 @@
       },
       "additionalProperties": false
     },
+    "TypstConfig": {
+      "type": "object",
+      "properties": {
+        "format": {
+          "default": "via [$symbol($version )]($style)",
+          "type": "string"
+        },
+        "version_format": {
+          "default": "v${raw}",
+          "type": "string"
+        },
+        "symbol": {
+          "default": "t ",
+          "type": "string"
+        },
+        "style": {
+          "default": "bold #0093A7",
+          "type": "string"
+        },
+        "disabled": {
+          "default": false,
+          "type": "boolean"
+        },
+        "detect_extensions": {
+          "default": [
+            "typ"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detect_files": {
+          "default": [
+            "template.typ"
+          ],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "detect_folders": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
     "UsernameConfig": {
       "type": "object",
       "properties": {
+        "detect_env_vars": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
         "format": {
           "default": "[$user]($style) in ",
           "type": "string"
