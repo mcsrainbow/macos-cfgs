@@ -33,15 +33,15 @@ alias k9s='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY k9s'
 alias watch='watch '
 alias ccat='bat --theme="Solarized (dark)" --style=plain'
 
+# LANG
+export LANG=en_US.UTF-8
+
 # Log the history commands with time stamps
 export HISTFILESIZE="1000000000"
 export HISTSIZE="1000000"
 export HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S "
 export HISTIGNORE="history*:pwd:ls:ll:la:lrt:lvh:clear:exit:zsh"
 export HISTCONTROL="ignoredups"
-
-# LANG
-export LANG=en_US.UTF-8
 
 # To support autojump, append "histor -a" to the end of the existing $PROMPT_COMMAND
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
