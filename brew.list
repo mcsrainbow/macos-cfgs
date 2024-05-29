@@ -12,6 +12,7 @@ csvkit
 dos2unix
 dust
 findutils
+flux
 gawk
 git-crypt
 git-lfs
@@ -27,6 +28,7 @@ hugo
 iftop
 ipcalc
 iperf
+jq
 k3d
 k9s
 kube-linter
@@ -40,8 +42,8 @@ mycli
 nvm
 podman
 pwgen
-pygments
 readline
+sevenzip
 sqlite
 starship
 tldr
