@@ -1,26 +1,34 @@
 # macOS
 .DS_Store
+Icon
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+*.stackdump
+[Dd]esktop.ini
 
 # Editor
-*.swp
 *~
+*.swp
+*.swo
+*.swn
+
+# IDE
+.vscode/
+.idea/
+.ipynb_checkpoints/
 
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Binaries
-*.exe
-*.dll
-*.so
-*.dylib
+# Java
+*.class
+hs_err_pid*
+replay_pid*
 
-# IDE
-.vscode/
-.idea/
-.ipynb_checkpoints/
-.chat/
-
-# Log
-*.log
+# Node
+node_modules/
