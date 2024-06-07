@@ -1,8 +1,5 @@
 # .bashrc
 
-# More reliable way to source ble.sh at the TOP of .bashrc
-[[ $- == *i* ]] && source $HOME/.local/share/blesh/ble.sh --noattach
-
 # Source global definitions
 if [[ -f /etc/bashrc ]]; then
   . /etc/bashrc
@@ -237,7 +234,3 @@ function proxyoff(){
   echo "unset ${!_proxy_protocols[@]}"
 }
 
-# More reliable way to enable ble.sh at the END of .bashrc
-# With ble-attach performed, standard streams (stdin, stdout, and stderr) should
-# remain linked to the controlling TTY of the current session, instead of being redirected
-[[ ${BLE_VERSION-} ]] && ble-attach
