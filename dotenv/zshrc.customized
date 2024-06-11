@@ -6,7 +6,7 @@ alias ll='lsd -l --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias la='lsd -a'
 alias lrt='lsd -lrth --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias lvh='lsd -lvh --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
-alias tree='lsd --tree'
+alias tree='lsd --tree --group-dirs first'
 alias rm='trash-put -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -45,6 +45,22 @@ function enable_nvm(){
 # Anaconda
 function enable_conda() {
   source /opt/homebrew/anaconda3/etc/profile.d/conda.sh
+}
+
+# Obsidian
+function sync_obsidian() {
+  cd /Users/damonguo/Workspace/obsidian
+  local status_lines=$(git status --porcelain | wc -l)
+
+  if [[ "$status_lines" -eq 0 ]]; then
+    echo "INFO: Obsidian on GitHub is up to date"
+  else
+    echo "INFO: Synchronizing Obsidian to GitHub..."
+    git add --all
+    git commit -m "docs(sync): sync the local docs with all recent updates"
+    git push
+    echo "INFO: Done"
+  fi
 }
 
 # Check current public IP
