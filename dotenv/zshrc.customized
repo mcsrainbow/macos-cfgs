@@ -20,7 +20,7 @@ alias k='kubectl'
 alias kctx='kubectx'
 alias kns='kubens'
 alias watch='watch '
-alias ccat='bat --theme="Solarized (dark)" --style=plain'
+alias ccat='bat --theme="Solarized (dark)" --style=plain --paging=never'
 
 # LANG
 export LANG=en_US.UTF-8
