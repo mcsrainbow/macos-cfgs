@@ -52,6 +52,10 @@ complete -cf sudo
 # Enable auto-completion of aws
 complete -cf aws
 
+# Enable color codes and pager for Git commands
+export LESS='-R'
+export GIT_PAGER='less -R'
+
 # Readline library accepts \001 and \002 as non-visible text delimiters
 # The bash-specific \[ and \] are translated to \001 and \002
 _nvt_open=$'\001' # non-visible text open
