@@ -1,7 +1,7 @@
 # Global settings
 ## https://starship.rs/config/
 ## Get editor completions based on the config schema
-"$schema" = '~/.config/starship/config-schema.json'
+"$schema" = 'https://starship.rs/config-schema.json'
 
 ## Inserts a blank line between shell prompts
 add_newline = true
