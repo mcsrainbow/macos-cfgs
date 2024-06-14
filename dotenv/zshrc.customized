@@ -49,7 +49,7 @@ function enable_conda() {
 
 # Obsidian
 function sync_obsidian() {
-  cd /Users/damonguo/Workspace/obsidian
+  cd $HOME/Workspace/obsidian
   local status_lines=$(git status --porcelain | wc -l)
 
   if [[ "$status_lines" -eq 0 ]]; then
