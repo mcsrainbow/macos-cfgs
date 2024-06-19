@@ -12,43 +12,42 @@ My Personal macOS Configurations
 │       │   └── README.md
 │       └── MapleMono-SC-NF
 │           └── README.md
-├── README.md
 ├── Workspace
 │   └── scripts
 │       └── smartroutes.sh
-├── brew.list
 ├── dotenv
-│   ├── bash_profile
-│   ├── bashrc
-│   ├── blerc
 │   ├── config
 │   │   └── starship
 │   │       ├── README.md
-│   │       ├── config-schema.json
 │   │       ├── icons_in_starship.jpg
 │   │       └── starship.toml
-│   ├── gitconfig
-
-│   ├── gitignore_global
-│   ├── inputrc
 │   ├── kube
 │   │   └── update_kubeconfg.sh
 │   ├── orbstack
 │   │   └── config
 │   │       └── docker.json
-│   ├── p10k.zsh
 │   ├── ssh
 │   │   └── config
+│   ├── bash_profile
+│   ├── bashrc
+│   ├── editorconfig
+│   ├── gitconfig
+
+│   ├── gitignore_global
+│   ├── inputrc
+│   ├── p10k.zsh
 │   ├── vimrc
 │   ├── zprofile
 │   ├── zshrc
 │   └── zshrc.customized
-├── k.krew.list
-└── screenshots
-    ├── tabby_bash-starship_ohmyzsh-p10k.jpg
-    └── vim_vimrc.jpg
+├── screenshots
+│   ├── tabby_bash-starship_ohmyzsh-p10k.jpg
+│   └── vim_vimrc.jpg
+├── README.md
+├── brew.list
+└── k.krew.list
 
-15 directories, 27 files
+15 directories, 26 files
 ```
 
 ## Screenshots
