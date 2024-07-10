@@ -1,12 +1,12 @@
 # .zshrc.customized
 
 # User specific aliases and functions
-alias ls='lsd'
-alias ll='lsd -l --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
-alias la='lsd -a'
-alias lrt='lsd -lrth --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
-alias lvh='lsd -lvh --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
-alias tree='lsd --tree --group-dirs first'
+alias ls='lsd -N'
+alias ll='lsd -N -l --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias la='lsd -N -a'
+alias lrt='lsd -N -lrth --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias lvh='lsd -N -lvh --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias tree='lsd -N --tree --group-dirs first'
 alias rm='trash-put -i'
 alias cp='cp -i'
 alias mv='mv -i'
