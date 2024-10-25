@@ -137,11 +137,25 @@ function proxyon(){
   local proxy_type
   for proxy_type in "${(@k)_proxy_protocols}"; do
     export ${proxy_type}=${_proxy_protocols[$proxy_type]}://${socket}
-    printenv | /usr/bin/grep -w ${proxy_type}
   done
+
+  local noproxy_list=(
+    "127.0.0.0/8"
+    "localhost"
+    "0.0.0.0/8"
+    "100.64.0.0/10"
+    "169.254.0.0/16"
+    "198.18.0.0/15"
+    "10.0.0.0/8"
+    "172.16.0.0/12"
+    "192.168.0.0/16"
+  )
+  export NO_PROXY=${(j:,:)noproxy_list}
+
+  printenv | /usr/bin/grep "_PROXY"
 }
 
 function proxyoff(){
-  unset ${(@k)_proxy_protocols}
-  echo "unset ${(@k)_proxy_protocols}"
+  unset ${(@k)_proxy_protocols} NO_PROXY
+  echo "unset ${(@k)_proxy_protocols} NO_PROXY"
 }
