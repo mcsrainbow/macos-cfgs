@@ -10,7 +10,7 @@ My Personal macOS Configurations
 │   └── Fonts
 │       ├── JetBrainsMono
 │       │   └── README.md
-│       └── MapleMono-SC-NF
+│       └── MapleMono-NF-CN
 │           └── README.md
 ├── Workspace
 │   └── scripts
