@@ -94,21 +94,14 @@ function checkip(){
   curl -s ipinfo.io/$1
 }
 
-# Faster change directory up N times
-function up(){
-  local arg=""
-  local num=$1
-  local idx
-  if [[ ! -z "${num##*[!0-9]*}" ]]; then
-    for idx in $(seq 1 $num); do
-      arg+="../"
-    done
-    local cmd="cd ${arg}"
-    eval "$cmd;pwd"
+# Fast way to cd up N directory levels
+function up() {
+  if [[ ! $1 =~ ^[0-9]+$ ]]; then
+    cd ..
   else
-    local cmd="cd .."
-    eval "$cmd;pwd"
+    cd "$(printf '../%.0s' $(seq 1 $1))"
   fi
+  pwd
 }
 
 # Generate a random password
