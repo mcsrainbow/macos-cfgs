@@ -74,7 +74,7 @@ _tput_bold=${_nvt_open}$(tput bold)${_nvt_close}
 _tput_reset=${_nvt_open}$(tput sgr0)${_nvt_close}
 
 # Check current public IP
-function publicip(){
+function publicip() {
   local website_list=(
     ipinfo.io
     checkip.amazonaws.com
@@ -94,7 +94,7 @@ function publicip(){
 }
 
 # Check specific public IP
-function checkip(){
+function checkip() {
   if [[ -n "$HTTP_PROXY" ]]; then
     echo "${_tput_yellow}NOTICE: HTTP_PROXY has been set${_tput_reset}"
   fi
@@ -103,7 +103,7 @@ function checkip(){
 }
 
 # NVM
-function enable_nvm(){
+function enable_nvm() {
   export NVM_DIR=$HOME/.nvm
   source /opt/homebrew/opt/nvm/nvm.sh
 }
@@ -116,19 +116,19 @@ function enable_conda() {
 # Filesystem Markers & Jump
 export MARKPATH=$HOME/.marks
 
-function jump(){
+function jump() {
   cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
 }
 
-function mark(){
+function mark() {
   mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
 }
 
-function unmark(){
+function unmark() {
   /bin/rm -i $MARKPATH/$1
 }
 
-function _marks(){
+function _marks() {
   COMPREPLY=()
   local cur=${COMP_WORDS[COMP_CWORD]};
   local com=${COMP_WORDS[COMP_CWORD-1]};
@@ -158,7 +158,7 @@ function up() {
 }
 
 # Enable auto-completion of smartroutes
-function _routes(){
+function _routes() {
   COMPREPLY=()
   local cur=${COMP_WORDS[COMP_CWORD]};
   local com=${COMP_WORDS[COMP_CWORD-1]};
@@ -177,16 +177,16 @@ eval "$(starship init bash)"
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 # Show current Kubernetes context and namespace with colors in Starship Bash prompt
-function kubeon(){
+function kubeon() {
   sed -i '/\[kubernetes\]/!b;n;s/disabled = true/disabled = false/' $STARSHIP_CONFIG
 }
 
-function kubeoff(){
+function kubeoff() {
   sed -i '/\[kubernetes\]/!b;n;s/disabled = false/disabled = true/' $STARSHIP_CONFIG
 }
 
 # Generate a random password
-function pwrgen(){
+function pwrgen() {
   if [[ $1 =~ ^[0-9]+$ ]]; then
     local passwdlen=$1
   else
@@ -217,7 +217,7 @@ declare -A _proxy_protocols=(
   ["ALL_PROXY"]="socks5"
 )
 
-function proxyon(){
+function proxyon() {
   local socket="127.0.0.1:7890"
   local proxy_type
   for proxy_type in "${!_proxy_protocols[@]}"; do
@@ -241,7 +241,7 @@ function proxyon(){
   printenv | /usr/bin/grep "_PROXY"
 }
 
-function proxyoff(){
+function proxyoff() {
   unset ${!_proxy_protocols[@]} NO_PROXY
   echo "unset ${!_proxy_protocols[@]} NO_PROXY"
 }

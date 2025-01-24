@@ -37,7 +37,7 @@ export HISTORY_IGNORE="(history*|pwd|ls|ll|la|lrt|lvh|clear|exit)"
 bindkey '^ ' autosuggest-accept
 
 # NVM
-function enable_nvm(){
+function enable_nvm() {
   export NVM_DIR=$HOME/.nvm
   source /opt/homebrew/opt/nvm/nvm.sh
 }
@@ -64,7 +64,7 @@ function sync_obsidian() {
 }
 
 # Check current public IP
-function publicip(){
+function publicip() {
   local website_list=(
     ipinfo.io
     checkip.amazonaws.com
@@ -85,7 +85,7 @@ function publicip(){
 }
 
 # Check specific public IP
-function checkip(){
+function checkip() {
   if [[ -n "$HTTP_PROXY" ]]; then
     local message="NOTICE: HTTP_PROXY has been set"
     echo -e "\033[33m${message}\033[0m"
@@ -105,7 +105,7 @@ function up() {
 }
 
 # Generate a random password
-function pwrgen(){
+function pwrgen() {
   if [[ $1 =~ ^[0-9]+$ ]]; then
     local passwdlen=$1
   else
@@ -118,6 +118,14 @@ function pwrgen(){
   echo -e "\033[33m${passwdout}\033[0m"
 }
 
+# Generate SQL to duplicate a MySQL table
+function duptbl() {
+  local tbl=$1
+  local dt=$(date +%Y%m%d_%H%M)
+  echo "CREATE TABLE ${tbl}_${dt} LIKE ${tbl};"
+  echo "INSERT INTO ${tbl}_${dt} SELECT * FROM ${tbl};"
+}
+
 # Enable or disable HTTP proxy
 typeset -A _proxy_protocols=(
   ["HTTP_PROXY"]="http"
@@ -125,7 +133,7 @@ typeset -A _proxy_protocols=(
   ["ALL_PROXY"]="socks5"
 )
 
-function proxyon(){
+function proxyon() {
   local socket="127.0.0.1:7890"
   local proxy_type
   for proxy_type in "${(@k)_proxy_protocols}"; do
@@ -148,7 +156,7 @@ function proxyon(){
   printenv | /usr/bin/grep "_PROXY"
 }
 
-function proxyoff(){
+function proxyoff() {
   unset ${(@k)_proxy_protocols} NO_PROXY
   echo "unset ${(@k)_proxy_protocols} NO_PROXY"
 }
