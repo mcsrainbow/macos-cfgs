@@ -218,7 +218,7 @@ declare -A _proxy_protocols=(
 )
 
 function proxyon() {
-  local socket="127.0.0.1:7890"
+  local socket="127.0.0.1:7897"
   local proxy_type
   for proxy_type in "${!_proxy_protocols[@]}"; do
     export ${proxy_type}=${_proxy_protocols[$proxy_type]}://${socket}
