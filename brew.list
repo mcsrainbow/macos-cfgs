@@ -15,7 +15,9 @@ findutils
 flux
 gawk
 git-crypt
+git-filter-repo
 git-lfs
+git-who
 gnu-sed
 gnu-tar
 gnutls
@@ -76,7 +78,6 @@ obsidian
 ollama
 orbstack
 oss-browser
-postman
 ppduck
 qq
 qqlive
