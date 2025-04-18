@@ -20,7 +20,6 @@ git-lfs
 git-who
 gnu-sed
 gnu-tar
-gnutls
 go
 gum
 helm
@@ -43,12 +42,10 @@ mtr
 mycli
 nvm
 pgcli
-podman
 pwgen
 readline
 sqlite
 starship
-tldr
 tmux
 trash-cli
 tree
@@ -68,7 +65,6 @@ dingtalk
 drawio
 foxitreader
 google-chrome
-grammarly-desktop
 iina
 imageoptim
 macpass
