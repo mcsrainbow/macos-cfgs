@@ -103,13 +103,13 @@ function checkip() {
 }
 
 # NVM
-function enable_nvm() {
+function use_nvm() {
   export NVM_DIR=$HOME/.nvm
   source /opt/homebrew/opt/nvm/nvm.sh
 }
 
 # Anaconda
-function enable_conda() {
+function use_conda() {
   source /opt/homebrew/anaconda3/etc/profile.d/conda.sh
 }
 
