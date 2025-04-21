@@ -1,4 +1,4 @@
-# .zshrc.customized
+# .zshrc.custom
 
 # User specific aliases and functions
 alias ls='lsd -N'
@@ -49,8 +49,10 @@ function use_conda() {
 
 # Obsidian
 function sync_obsidian() {
+  local status_lines
+
   cd $HOME/Workspace/obsidian
-  local status_lines=$(git status --porcelain | wc -l)
+  status_lines=$(git status --porcelain | wc -l)
 
   if [[ "$status_lines" -eq 0 ]]; then
     echo "INFO: Obsidian on GitHub is up to date"
@@ -65,7 +67,9 @@ function sync_obsidian() {
 
 # Check current public IP
 function publicip() {
-  local website_list=(
+  local website_list message website
+
+  website_list=(
     ipinfo.io
     checkip.amazonaws.com
     ifconfig.co
@@ -74,11 +78,10 @@ function publicip() {
   )
 
   if [[ -n "$HTTP_PROXY" ]]; then
-    local message="NOTICE: HTTP_PROXY has been set"
+    message="NOTICE: HTTP_PROXY has been set"
     echo -e "\033[33m${message}\033[0m"
   fi
 
-  local website
   for website in ${website_list[@]}; do
     echo "${website}: $(curl -s ${website})"
   done
@@ -86,8 +89,10 @@ function publicip() {
 
 # Check specific public IP
 function checkip() {
+  local message
+
   if [[ -n "$HTTP_PROXY" ]]; then
-    local message="NOTICE: HTTP_PROXY has been set"
+    message="NOTICE: HTTP_PROXY has been set"
     echo -e "\033[33m${message}\033[0m"
   fi
 
@@ -106,24 +111,18 @@ function up() {
 
 # Generate a random password
 function pwrgen() {
+  local passwdlen passwdstr randomnum passwdout
+
   if [[ $1 =~ ^[0-9]+$ ]]; then
-    local passwdlen=$1
+    passwdlen=$1
   else
-    local passwdlen=16
+    passwdlen=16
   fi
 
-  local passwdstr=$(pwgen -cnsB ${passwdlen} 1)
-  local randomnum=$((RANDOM % (passwdlen - 2) + 2))
-  local passwdout=$(echo ${passwdstr} | sed "s/./_/$randomnum")
+  passwdstr=$(pwgen -cnsB ${passwdlen} 1)
+  randomnum=$((RANDOM % (passwdlen - 2) + 2))
+  passwdout=$(echo ${passwdstr} | sed "s/./_/$randomnum")
   echo -e "\033[33m${passwdout}\033[0m"
-}
-
-# Generate SQL to duplicate a MySQL table
-function duptbl() {
-  local tbl=$1
-  local dt=$(date +%Y%m%d_%H%M)
-  echo "CREATE TABLE ${tbl}_${dt} LIKE ${tbl};"
-  echo "INSERT INTO ${tbl}_${dt} SELECT * FROM ${tbl};"
 }
 
 # Enable or disable HTTP proxy
@@ -134,13 +133,14 @@ typeset -A _proxy_protocols=(
 )
 
 function proxyon() {
-  local socket="127.0.0.1:7897"
-  local proxy_type
+  local socket proxy_type noproxy_list
+
+  socket="127.0.0.1:7897"
   for proxy_type in "${(@k)_proxy_protocols}"; do
     export ${proxy_type}=${_proxy_protocols[$proxy_type]}://${socket}
   done
 
-  local noproxy_list=(
+  noproxy_list=(
     "localhost"
     "127.0.0.0/8"
     "10.0.0.0/8"
@@ -160,3 +160,4 @@ function proxyoff() {
   unset ${(@k)_proxy_protocols} NO_PROXY
   echo "unset ${(@k)_proxy_protocols} NO_PROXY"
 }
+
