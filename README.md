@@ -5,23 +5,18 @@ My Personal macOS Configurations
 ## List all files as a tree
 
 ```
+tree --dirsfirst
 .
-├── Library
-│   └── Fonts
-│       ├── JetBrainsMono
-│       │   └── README.md
-│       └── MapleMono-NF-CN
-│           └── README.md
-├── Workspace
-│   └── scripts
-│       └── smartroutes.sh
 ├── dotenv
 │   ├── config
 │   │   └── starship
-│   │       ├── README.md
 │   │       ├── icons_in_starship.jpg
+│   │       ├── README.md
 │   │       └── starship.toml
 │   ├── kube
+│   │   ├── config.d
+│   │   │   └── rename_kubeconfig.sh
+│   │   ├── gencfg_orbstack.sh
 │   │   └── update_kubeconfg.sh
 │   ├── orbstack
 │   │   └── config
@@ -30,6 +25,7 @@ My Personal macOS Configurations
 │   │   └── config
 │   ├── bash_profile
 │   ├── bashrc
+│   ├── bashrc.custom
 │   ├── editorconfig
 │   ├── gitconfig
 
@@ -39,15 +35,24 @@ My Personal macOS Configurations
 │   ├── vimrc
 │   ├── zprofile
 │   ├── zshrc
-│   └── zshrc.customized
+│   └── zshrc.custom
+├── Library
+│   └── Fonts
+│       ├── JetBrainsMono
+│       │   └── README.md
+│       └── MapleMono-NF-CN
+│           └── README.md
 ├── screenshots
 │   ├── tabby_bash-starship_ohmyzsh-p10k.jpg
 │   └── vim_vimrc.jpg
-├── README.md
+├── Workspace
+│   └── scripts
+│       └── smartroutes.sh
 ├── brew.list
-└── k.krew.list
+├── k.krew.list
+└── README.md
 
-15 directories, 26 files
+16 directories, 29 files
 ```
 
 ## Screenshots
