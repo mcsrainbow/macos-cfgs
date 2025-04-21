@@ -1,6 +1,6 @@
 # macos-cfgs
 
-My Personal macOS Configurations
+Personal macOS configurations
 
 ## List all files as a tree
 
