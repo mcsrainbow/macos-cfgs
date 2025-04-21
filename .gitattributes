@@ -1,5 +1,4 @@
-zshrc.* linguist-language=zsh
-bashrc.* linguist-language=bash
-ssh/config linguist-language=ssh_config
+zshrc.* linguist-language=sh
+bashrc.* linguist-language=sh
 editorconfig linguist-language=ini
 gitconfig* linguist-language=ini
