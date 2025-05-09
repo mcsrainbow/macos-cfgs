@@ -1,3 +1,4 @@
+❯ brew list -1
 ==> Formulae
 aliyun-cli
 ansible
@@ -9,6 +10,7 @@ bat
 cmake
 coreutils
 csvkit
+difftastic
 dos2unix
 dust
 findutils
@@ -46,6 +48,7 @@ pwgen
 readline
 sqlite
 starship
+swaks
 tmux
 trash-cli
 tree
@@ -64,6 +67,7 @@ dbeaver-community
 dingtalk
 drawio
 foxitreader
+ghostty
 google-chrome
 iina
 imageoptim
@@ -80,7 +84,6 @@ qqlive
 qqmusic
 raycast
 studio-3t
-tabby
 telegram
 tencent-lemon
 tencent-meeting
