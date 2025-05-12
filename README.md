@@ -46,7 +46,7 @@ tree --dirsfirst
 │       │   └── README.md
 │       ├── JetBrainsMono
 │       │   └── README.md
-│       └── MapleMono-NF-CN
+│       └── MapleMono
 │           └── README.md
 ├── screenshots
 │   ├── tabby_bash-starship_ohmyzsh-p10k.jpg
