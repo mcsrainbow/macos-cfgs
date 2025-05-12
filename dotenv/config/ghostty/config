@@ -3,6 +3,7 @@
 ## Font
 font-family = "JetBrains Maple Mono"
 font-size = 15
+font-feature = -calt
 bold-is-bright = true
 
 ## Color
