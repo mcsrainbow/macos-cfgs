@@ -31,7 +31,6 @@ export PATH=$HOME/.krew/bin:$PATH
 # Increase history size
 export SAVEHIST=1000000000
 export HISTSIZE=1000000
-export HISTORY_IGNORE="(history*|pwd|ls|ll|la|lrt|lvh|clear|exit)"
 
 # Bind ctrl + space to accept the current suggestion
 bindkey '^ ' autosuggest-accept
