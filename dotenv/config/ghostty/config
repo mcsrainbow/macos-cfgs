@@ -1,7 +1,8 @@
 # https://ghostty.org/docs/config/reference
 
 ## Font
-font-family = "JetBrains Maple Mono"
+font-family = "JetBrainsMonoNL Nerd Font"
+font-family = "Maple Mono NF CN"
 font-size = 15
 font-feature = -calt
 bold-is-bright = true
@@ -39,7 +40,7 @@ copy-on-select = clipboard
 clipboard-paste-protection = true
 
 ## Window
-window-title-font-family = "JetBrains Maple Mono"
+window-title-font-family = "JetBrainsMonoNL Nerd Font"
 window-padding-x = 10
 window-padding-y = 10
 window-padding-balance = true
