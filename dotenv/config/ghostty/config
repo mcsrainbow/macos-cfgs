@@ -2,7 +2,7 @@
 
 ## Font
 font-family = "JetBrainsMonoNL Nerd Font"
-font-family = "Maple Mono NF CN"
+font-family = "Maple Mono NL NF CN"
 font-size = 15
 font-feature = -calt
 bold-is-bright = true
