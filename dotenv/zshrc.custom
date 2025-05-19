@@ -51,6 +51,8 @@ function sync_obsidian() {
   local status_lines
 
   cd $HOME/Workspace/obsidian
+  find . -name "*.md" -exec sed -i '' 's/\t/  /g' {} +
+
   status_lines=$(git status --porcelain | wc -l)
 
   if [[ "$status_lines" -eq 0 ]]; then
