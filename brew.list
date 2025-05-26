@@ -2,7 +2,6 @@
 ==> Formulae
 aliyun-cli
 ansible
-autojump
 awscli
 bash
 bash-completion
@@ -55,6 +54,7 @@ tree
 trzsz-go
 watch
 wget
+zoxide
 
 ==> Casks
 anaconda

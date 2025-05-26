@@ -32,8 +32,8 @@ export HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S "
 export HISTIGNORE="history*:pwd:ls:ll:la:lrt:lvh:clear:exit:zsh"
 export HISTCONTROL="ignoredups"
 
-# To support autojump, append "histor -a" to the end of the existing $PROMPT_COMMAND
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} history -a"
+# Append commands immediately to history
+export PROMPT_COMMAND="history -a"
 
 # Enable auto-completion of bash
 source /opt/homebrew/etc/profile.d/bash_completion.sh
@@ -43,6 +43,9 @@ complete -cf sudo
 
 # Enable auto-completion of aws
 complete -cf aws
+
+# Enable zoxide
+eval "$(zoxide init bash)"
 
 # Enable color codes and pager for Git commands
 export LESS='-R'
@@ -205,9 +208,6 @@ complete -o default -F __start_kubectl k
 
 # The plugin manager for kubectl command-line tool
 export PATH=$HOME/.krew/bin:$PATH
-
-# Enable autojump
-source /opt/homebrew/etc/profile.d/autojump.sh
 
 # Enable or disable HTTP proxy
 declare -A _proxy_protocols=(
