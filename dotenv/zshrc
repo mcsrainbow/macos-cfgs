@@ -82,10 +82,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   zsh-syntax-highlighting
   zsh-autosuggestions
-  aws
   jump
   colored-man-pages
-  autojump
+  zoxide
 )
 
 # Enable completions
