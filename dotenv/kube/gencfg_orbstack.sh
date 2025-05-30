@@ -1,3 +1,8 @@
+#!#!/usr/bin/env bash
+
+# Error handling in bash scripts
+set -euo pipefail
+
 orbstack_config="${HOME}/.kube/config.d/orbstack.config"
 
 kubectl config view --minify --raw --context=orbstack > ${orbstack_config}
