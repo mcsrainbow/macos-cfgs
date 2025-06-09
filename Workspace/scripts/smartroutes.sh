@@ -1,4 +1,4 @@
-#!#!/usr/bin/env bash
+#!/usr/bin/env bash
 #
 # Add static routes for all the public IP ranges of the current country to local default gateway,
 # to make data only goes through VPN when accessing other countries.
