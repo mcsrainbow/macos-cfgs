@@ -32,8 +32,11 @@ export PATH=$HOME/.krew/bin:$PATH
 export SAVEHIST=1000000000
 export HISTSIZE=1000000
 
-# Bind ctrl + space to accept the current suggestion
+# Bind Ctrl+Space to accept the current suggestion
 bindkey '^ ' autosuggest-accept
+
+# Bind Ctrl+U to delete before cursor instead of whole line
+bindkey '^U' backward-kill-line
 
 # NVM
 function use_nvm() {
