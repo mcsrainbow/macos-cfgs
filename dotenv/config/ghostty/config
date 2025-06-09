@@ -29,6 +29,12 @@ window-save-state = always
 background-opacity = 0.9
 confirm-close-surface = false
 
+## Keybindings
+### ctrl+k delete to end of line
+keybind = cmd+period=text:\x0b
+### ctrl+r search previous commands
+keybind = cmd+r=text:\x12
+
 ## Mouse
 mouse-hide-while-typing = true
 
