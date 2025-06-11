@@ -21,6 +21,7 @@ alias kns='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY kubens'
 alias k9s='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY k9s'
 alias watch='watch '
 alias ccat='bat --theme="Solarized (dark)" --style=plain --paging=never'
+alias vbare='vim +"set syntax=off paste"'
 
 # Clear screen but keep scrollback history
 alias clear='printf "\033[H\033[22J"'
