@@ -7,61 +7,66 @@ Personal macOS configurations
 ```
 tree --dirsfirst
 .
-├── Library
-│   └── Fonts
-│       ├── JetBrainsMapleMono
-│       │   └── README.md
-│       ├── JetBrainsMono
-│       │   └── README.md
-│       └── MapleMono
-│           └── README.md
-├── Workspace
-│   └── scripts
-│       └── smartroutes.sh
 ├── dotenv
-│   ├── config
-│   │   ├── ghostty
-│   │   │   └── config
-│   │   ├── kitty
-│   │   │   ├── kitty.conf
-│   │   │   └── solarized_dark_higher_contrast-theme.conf
-│   │   ├── pip
-│   │   │   └── pip.conf
-│   │   └── starship
-│   │       ├── README.md
-│   │       ├── icons_in_starship.jpg
-│   │       └── starship.toml
-│   ├── kube
-│   │   ├── config.d
-│   │   │   └── rename_kubeconfig.sh
-│   │   ├── gencfg_orbstack.sh
-│   │   └── update_kubeconfig.sh
-│   ├── orbstack
-│   │   └── config
-│   │       └── docker.json
-│   ├── ssh
-│   │   └── config
-│   ├── bash_profile
-│   ├── bashrc
-│   ├── bashrc.custom
-│   ├── editorconfig
-│   ├── gitconfig
+│   ├── config
+│   │   ├── ghostty
+│   │   │   └── config
+│   │   ├── kitty
+│   │   │   ├── kitty.conf
+│   │   │   └── solarized_dark_higher_contrast-theme.conf
+│   │   ├── pip
+│   │   │   └── pip.conf
+│   │   └── starship
+│   │       ├── icons_in_starship.jpg
+│   │       ├── README.md
+│   │       └── starship.toml
+│   ├── kube
+│   │   ├── config.d
+│   │   │   └── rename_kubeconfig.sh
+│   │   ├── gencfg_orbstack.sh
+│   │   └── update_kubeconfig.sh
+│   ├── obsidian
+│   │   └── plugins
+│   │       └── obsidian-style-settings
+│   │           └── data.json
+│   ├── orbstack
+│   │   └── config
+│   │       └── docker.json
+│   ├── ssh
+│   │   └── config
+│   ├── bash_profile
+│   ├── bashrc
+│   ├── bashrc.custom
+│   ├── editorconfig
+│   ├── gitconfig
 
-│   ├── gitignore_global
-│   ├── inputrc
-│   ├── p10k.zsh
-│   ├── vimrc
-│   ├── zprofile
-│   ├── zshrc
-│   └── zshrc.custom
+│   ├── gitignore_global
+│   ├── inputrc
+│   ├── p10k.zsh
+│   ├── vimrc
+│   ├── zprofile
+│   ├── zshrc
+│   └── zshrc.custom
+├── Library
+│   └── Fonts
+│       ├── JetBrainsMapleMono
+│       │   └── README.md
+│       ├── JetBrainsMono
+│       │   └── README.md
+│       └── MapleMono
+│           └── README.md
 ├── screenshots
-│   ├── tabby_bash-starship_ohmyzsh-p10k.jpg
-│   └── vim_vimrc.jpg
-├── README.md
+│   ├── tabby_bash-starship_ohmyzsh-p10k.jpg
+│   └── vim_vimrc.jpg
+├── Workspace
+│   └── scripts
+│       └── smartroutes.sh
 ├── brew.list
-└── k.krew.list
+├── k.krew.list
+└── README.md
 
-20 directories, 34 files
+23 directories, 35 files
+
 ```
 
 ## Screenshots
