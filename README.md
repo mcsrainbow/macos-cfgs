@@ -66,7 +66,6 @@ tree --dirsfirst
 └── README.md
 
 23 directories, 35 files
-
 ```
 
 ## Screenshots
