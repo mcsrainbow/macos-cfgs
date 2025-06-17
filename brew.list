@@ -9,13 +9,13 @@ bat
 cmake
 coreutils
 csvkit
-difftastic
 dos2unix
 dust
 findutils
 flux
 gawk
 git-crypt
+git-delta
 git-filter-repo
 git-lfs
 git-who
