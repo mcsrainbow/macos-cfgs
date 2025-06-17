@@ -13,8 +13,7 @@
 [delta]
     features = line-numbers decorations
 [delta "decorations"]
-    commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
+    file-style = bold yellow italic
     file-decoration-style = none
     hunk-header-decoration-style = cyan box ul
 [merge]
