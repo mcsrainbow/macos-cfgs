@@ -11,7 +11,7 @@
 [interactive]
     diffFilter = delta --color-only
 [delta]
-    color-only = true
+    diff-highlight = true
 [merge]
     conflictstyle = zdiff3
 [filter "lfs"]
