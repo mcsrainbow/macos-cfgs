@@ -15,8 +15,7 @@
 [delta "decorations"]
     file-style = bold yellow italic
     file-decoration-style = none
-    hunk-header-style = syntax
-    hunk-header-decoration-style = cyan ol ul
+    hunk-header-style = omit
 [merge]
     conflictstyle = zdiff3
 [filter "lfs"]
