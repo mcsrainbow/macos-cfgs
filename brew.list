@@ -1,5 +1,6 @@
 ❯ brew list -1
 ==> Formulae
+algolia
 aliyun-cli
 ansible
 awscli
@@ -60,6 +61,7 @@ zoxide
 anaconda
 arc
 baidunetdisk
+bruno
 chatbox
 coteditor
 cursor
@@ -77,7 +79,7 @@ macpass
 maczip
 microsoft-edge
 obsidian
-ollama
+ollama-app
 orbstack
 oss-browser
 ppduck
