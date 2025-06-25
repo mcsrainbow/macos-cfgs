@@ -51,6 +51,9 @@ complete -cf aws
 # Enable zoxide
 eval "$(zoxide init bash)"
 
+# Enable fuck
+eval $(thefuck --alias)
+
 # Enable color codes and pager for Git commands
 export LESS='-R'
 export GIT_PAGER='less -R'

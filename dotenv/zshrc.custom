@@ -42,6 +42,9 @@ bindkey '^ ' autosuggest-accept
 # Bind Ctrl+U to delete before cursor instead of whole line
 bindkey '^U' backward-kill-line
 
+# Enable fuck
+eval $(thefuck --alias)
+
 # NVM
 function use_nvm() {
   export NVM_DIR=$HOME/.nvm
