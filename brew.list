@@ -43,6 +43,7 @@ lsd
 mtr
 mycli
 nvm
+ollama
 pgcli
 pwgen
 readline
@@ -63,7 +64,7 @@ anaconda
 arc
 baidunetdisk
 bruno
-chatbox
+cherry-studio
 coteditor
 cursor
 dbeaver-community
@@ -80,7 +81,6 @@ macpass
 maczip
 microsoft-edge
 obsidian
-ollama-app
 orbstack
 oss-browser
 ppduck
