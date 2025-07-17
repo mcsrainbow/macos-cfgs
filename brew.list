@@ -32,7 +32,6 @@ iftop
 ipcalc
 iperf
 jq
-k3d
 k9s
 kube-linter
 kubectx
