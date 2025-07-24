@@ -88,7 +88,7 @@ endif
 ":W sudo saves the file to handle the permission-denied error
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
-""Disable syntax highlighting to avoid slowness caused by very long base64-like string
+""Disable syntax highlighting to avoid lag from rendering long base64-like string
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function DisableSyntaxIfLongBase64Like()
   let max_lines = min([line('$'), 1000])
@@ -98,7 +98,7 @@ function DisableSyntaxIfLongBase64Like()
     if match(getline(lnum), base64_pattern) >= 0
       setlocal syntax=off
       echohl ErrorMsg
-      echon "Syntax highlighting disabled to avoid slowness: very long base64-like string on line " . lnum
+      echon "Syntax highlighting disabled: To avoid lag from rendering long base64-like string on line " . lnum
       echohl None
       break
     endif
