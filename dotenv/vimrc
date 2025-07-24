@@ -90,7 +90,7 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
 ""Disable syntax highlighting to avoid slowness caused by very long base64-like string
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! DisableSyntaxIfLongBase64Like()
+function DisableSyntaxIfLongBase64Like()
   let max_lines = min([line('$'), 1000])
   let base64_pattern = '[A-Za-z0-9+/=]\{256,}'
 
