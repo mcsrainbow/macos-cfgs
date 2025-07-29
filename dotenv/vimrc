@@ -10,6 +10,7 @@ set autoindent               "Copy indent from current line when starting a new 
 "set smartindent              "Do smart autoindenting when starting a new line
 "set number                   "Show line numbers
 set showmatch                "Show matching brackets when text indicator is over them
+set matchtime=2              "Tenths of a second to blink when matching brackets
 "set mouse=a                  "Enable the use of the mouse
 set ruler                    "Always show current position
 set incsearch                "Makes search act like search in modern browsers
