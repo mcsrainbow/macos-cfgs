@@ -42,7 +42,6 @@ lsd
 mtr
 mycli
 nvm
-ollama
 pgcli
 pwgen
 readline
@@ -82,6 +81,7 @@ maczip
 microsoft-edge
 multipass
 obsidian
+ollama-app
 orbstack
 oss-browser
 ppduck
