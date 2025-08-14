@@ -8,6 +8,7 @@ images
 kor
 krew
 ktop
+lineage
 neat
 pod-lens
 resource-capacity
@@ -16,5 +17,6 @@ status
 stern
 tree
 view-allocations
+view-cert
 view-secret
 who-can
