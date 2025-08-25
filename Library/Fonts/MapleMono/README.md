@@ -1,11 +1,4 @@
-1. Download `MapleMonoNormal-NF-CN.zip` + `MapleMonoNormalNL-NF-CN.zip`  
-   or `MapleMono-NF-CN.zip` + `MapleMonoNL-NF-CN.zip`  
-   from https://github.com/subframe7536/maple-font/releases  
-   The `Normal` variant is similar to `JetBrains Mono`  
-2. Extract the ZIP files into `~/Library/Fonts/MapleMono/`
-3. Select one of the following fonts:  
-   `MapleMono Normal NF CN`  
-   `MapleMono Normal NL NF CN`  
-   `MapleMono NF CN`  
-   `MapleMono NL NF CN`  
-4. These fonts display Chinese and English characters with an exact 2:1 width ratio
+1. Download `MapleMono-NF-CN.zip` and `MapleMonoNL-NF-CN.zip` from https://github.com/subframe7536/maple-font/releases
+2. Extract `MapleMono-NF-CN.zip` and `MapleMonoNL-NF-CN.zip` into `~/Library/Fonts/MapleMono/`
+3. Choose the Font `MapleMono NF CN` or `MapleMono NL NF CN` to display Chinese and English characters with a perfect width ratio of 2 to 1
+4. A good combination is to set `JetBrainsMonoNL Nerd Font` as the Primary Font and `MapleMono NL NF CN` as the Secondary Font
