@@ -49,8 +49,6 @@ tree --dirsfirst
 │   └── zshrc.custom
 ├── Library
 │   └── Fonts
-│       ├── JetBrainsMapleMono
-│       │   └── README.md
 │       ├── JetBrainsMono
 │       │   └── README.md
 │       └── MapleMono
@@ -65,7 +63,7 @@ tree --dirsfirst
 ├── k.krew.list
 └── README.md
 
-23 directories, 35 files
+22 directories, 34 files
 ```
 
 ## Screenshots
