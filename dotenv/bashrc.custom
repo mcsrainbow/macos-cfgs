@@ -145,16 +145,6 @@ function _marks() {
 complete -F _marks jump
 complete -F _marks unmark
 
-# Fast way to cd up N directory levels
-function up() {
-  if [[ ! $1 =~ ^[0-9]+$ ]]; then
-    cd ..
-  else
-    cd "$(printf '../%.0s' $(seq 1 $1))"
-  fi
-  pwd
-}
-
 # Enable auto-completion of smartroutes
 function _routes() {
   local cur com params
@@ -189,6 +179,16 @@ function kubeon() {
 
 function kubeoff() {
   sed -i '/\[kubernetes\]/!b;n;s/disabled = false/disabled = true/' $STARSHIP_CONFIG
+}
+
+# Fast way to cd up N directory levels
+function up() {
+  if [[ ! $1 =~ ^[0-9]+$ ]]; then
+    cd ..
+  else
+    cd "$(printf '../%.0s' $(seq 1 $1))"
+  fi
+  pwd
 }
 
 # Generate a random password
