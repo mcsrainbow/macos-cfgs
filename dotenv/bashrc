@@ -31,8 +31,6 @@ if [[ ${BLE_VERSION-} ]]; then
   bleopt complete_menu_filter=
   # disable ambiguous completion
   bleopt complete_ambiguous=
-  # disable EOF marker like "[ble: EOF]"
-  bleopt prompt_eol_mark=''
 fi
 
 # If ble.sh is already loaded then attach it to the current terminal
