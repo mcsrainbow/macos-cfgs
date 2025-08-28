@@ -182,9 +182,6 @@ eval "$(zoxide init bash)"
 # Enable fuck
 eval "$(thefuck --alias)"
 
-# Enable Atuin magical shell history
-eval "$(atuin init bash --disable-up-arrow)"
-
 # Show current Kubernetes context and namespace with colors in Starship Bash prompt
 function kubeon() {
   sed -i '/\[kubernetes\]/!b;n;s/disabled = true/disabled = false/' $STARSHIP_CONFIG
