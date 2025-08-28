@@ -83,16 +83,16 @@ disabled = true
 # Display the current Kubernetes context name and namespace
 [kubernetes]
 disabled = true
-symbol = '☸ '
-format = 'on [$symbol$context\($namespace\)](bold cyan) '
+symbol = '󱃾 '
+format = 'at [$symbol$context/$namespace](bold purple dimmed) '
 
-# Display the java module with style not dimmed
+# Display the java module with style dimmed
 [java]
-style = 'red'
+style = 'bold red dimmed'
 
-# Display the conda module with style not bold
+# Display the conda module with style dimmed
 [conda]
-style = 'green'
+style = 'bold green dimmed'
 
 # Disable the AWS module to not show the current AWS region and profile
 [aws]
@@ -109,16 +109,17 @@ disabled = true
 # Show the selected environment variables
 [env_var.HTTP_PROXY]
 variable = 'HTTP_PROXY'
-format = "with [↔ $env_value](bold blue) "
+format = 'with [↔ $env_value](bold blue dimmed) '
 
 # Show how long the last command took to execute
 [cmd_duration]
-min_time = 4_000 # Shortest duration to show time for (in milliseconds)
+min_time = 2_000 # Shortest duration to show time for (in milliseconds)
+format = 'took [ $duration](bold yellow dimmed) '
 
 # Show the current local time
 [time]
 disabled = false
+style = 'bold blue dimmed'
 format = 'at [ $time]($style) '
 time_format = '%T'
 utc_time_offset = '+8'
-style = 'bold black'
