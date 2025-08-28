@@ -43,7 +43,10 @@ bindkey '^ ' autosuggest-accept
 bindkey '^U' backward-kill-line
 
 # Enable fuck
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
+
+# Enable Atuin magical shell history
+eval "$(atuin init zsh)"
 
 # NVM
 function use_nvm() {
