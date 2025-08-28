@@ -48,9 +48,6 @@ complete -cf sudo
 # Enable auto-completion of aws
 complete -cf aws
 
-# Enable zoxide
-eval "$(zoxide init bash)"
-
 # Enable fuck
 eval $(thefuck --alias)
 
@@ -182,6 +179,9 @@ complete -F _routes smartroutes
 # Enable Starship
 eval "$(starship init bash)"
 export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
+
+# Enable zoxide
+eval "$(zoxide init bash)"
 
 # Show current Kubernetes context and namespace with colors in Starship Bash prompt
 function kubeon() {
