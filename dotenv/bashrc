@@ -8,30 +8,7 @@ fi
 # Suppress the warning messages of default interactive shell
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-# Load ble.sh only when the shell is interactive and initialize it without attaching
-[[ $- == *i* ]] && source -- $HOME/.local/share/blesh/ble.sh --attach=none
-
 # Customized user configuration
 source $HOME/.bashrc.custom
 source $HOME/.bashrc.hidden
 
-# Custom ble.sh settings only if ble.sh is loaded
-if [[ ${BLE_VERSION-} ]]; then
-  # replace the previous-printed prompt with custom strings
-  bleopt prompt_ps1_transient=same-dir
-  # left side of input gets replaced with
-  bleopt prompt_ps1_final='$(starship module character)'
-  # right side of input gets replaced with
-  bleopt prompt_rps1_final='$(starship module time)'
-  # delay of auto-complete in millisecond
-  bleopt complete_auto_delay=300
-  # disable menu-complete by TAB
-  bleopt complete_menu_complete=
-  # disable menu filtering
-  bleopt complete_menu_filter=
-  # disable ambiguous completion
-  bleopt complete_ambiguous=
-fi
-
-# If ble.sh is already loaded then attach it to the current terminal
-[[ ! ${BLE_VERSION-} ]] || ble-attach
