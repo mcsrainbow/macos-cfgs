@@ -83,8 +83,8 @@ disabled = true
 # Display the current Kubernetes context name and namespace
 [kubernetes]
 disabled = true
-symbol = '⎈ '
-format = 'at [$symbol$context/$namespace](bold cyan) '
+symbol = '☸ '
+format = 'on [$symbol$context\($namespace\)](bold cyan) '
 
 # Display the java module with style not dimmed
 [java]
