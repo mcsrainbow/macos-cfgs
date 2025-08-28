@@ -11,6 +11,9 @@ command_timeout = 5000
 
 # Move the $time to the first line and remove the modules barely used
 format = """
+$username\
+$hostname\
+$localip\
 $shlvl\
 $directory\
 $git_branch\
