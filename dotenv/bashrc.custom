@@ -252,3 +252,22 @@ function proxyoff() {
   echo "unset ${!_proxy_protocols[@]} NO_PROXY"
 }
 
+# Obsidian
+function sync_obsidian() {
+  local status_lines
+
+  cd $HOME/Workspace/obsidian
+  find . -name "*.md" -exec sed -i '' 's/\t/  /g' {} +
+
+  status_lines=$(git status --porcelain | wc -l)
+
+  if [[ "$status_lines" -eq 0 ]]; then
+    echo "INFO: Obsidian on GitHub is up to date"
+  else
+    echo "INFO: Synchronizing Obsidian to GitHub..."
+    git add --all
+    git commit -m "docs(sync): sync the local docs with all recent updates"
+    git push
+    echo "INFO: Done"
+  fi
+}
