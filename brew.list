@@ -3,6 +3,7 @@
 algolia
 aliyun-cli
 ansible
+atuin
 awscli
 bash
 bash-completion
@@ -12,8 +13,10 @@ coreutils
 csvkit
 dos2unix
 dust
+fd
 findutils
 flux
+fzf
 gawk
 git-crypt
 git-delta
