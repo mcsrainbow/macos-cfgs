@@ -48,12 +48,6 @@ complete -cf sudo
 # Enable auto-completion of aws
 complete -cf aws
 
-# Enable fuck
-eval "$(thefuck --alias)"
-
-# Enable Atuin magical shell history
-eval "$(atuin init bash)"
-
 # Enable color codes
 export LESS='-R'
 
@@ -184,6 +178,12 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 
 # Enable zoxide
 eval "$(zoxide init bash)"
+
+# Enable fuck
+eval "$(thefuck --alias)"
+
+# Enable Atuin magical shell history
+eval "$(atuin init bash)"
 
 # Show current Kubernetes context and namespace with colors in Starship Bash prompt
 function kubeon() {
