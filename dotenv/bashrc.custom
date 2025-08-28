@@ -49,7 +49,10 @@ complete -cf sudo
 complete -cf aws
 
 # Enable fuck
-eval $(thefuck --alias)
+eval "$(thefuck --alias)"
+
+# Enable Atuin magical shell history
+eval "$(atuin init bash)"
 
 # Enable color codes
 export LESS='-R'
