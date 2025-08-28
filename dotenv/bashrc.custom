@@ -51,9 +51,8 @@ complete -cf aws
 # Enable fuck
 eval $(thefuck --alias)
 
-# Enable color codes and pager for Git commands
+# Enable color codes
 export LESS='-R'
-export GIT_PAGER='less -R'
 
 # Readline library accepts \001 and \002 as non-visible text delimiters
 # The bash-specific \[ and \] are translated to \001 and \002
