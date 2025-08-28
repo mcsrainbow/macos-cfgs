@@ -46,7 +46,7 @@ bindkey '^U' backward-kill-line
 eval "$(thefuck --alias)"
 
 # Enable Atuin magical shell history
-eval "$(atuin init zsh)"
+eval "$(atuin init zsh --disable-up-arrow)"
 
 # NVM
 function use_nvm() {

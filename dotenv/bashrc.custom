@@ -183,7 +183,7 @@ eval "$(zoxide init bash)"
 eval "$(thefuck --alias)"
 
 # Enable Atuin magical shell history
-eval "$(atuin init bash)"
+eval "$(atuin init bash --disable-up-arrow)"
 
 # Show current Kubernetes context and namespace with colors in Starship Bash prompt
 function kubeon() {
