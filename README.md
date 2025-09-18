@@ -56,8 +56,8 @@ tree --dirsfirst
 │       └── MapleMono
 │           └── README.md
 ├── screenshots
-│   ├── tabby_bash-starship_ohmyzsh-p10k.jpg
-│   └── vim_vimrc.jpg
+│   ├── tabby_bash-starship_ohmyzsh-p10k.png
+│   └── vim_vimrc.png
 ├── Workspace
 │   └── scripts
 │       └── smartroutes.sh
@@ -70,7 +70,7 @@ tree --dirsfirst
 
 ## Screenshots
 
-![](screenshots/tabby_bash-starship_ohmyzsh-p10k.jpg)
+![](screenshots/tabby_bash-starship_ohmyzsh-p10k.png)
 
-![](screenshots/vim_vimrc.jpg)
+![](screenshots/vim_vimrc.png)
 
