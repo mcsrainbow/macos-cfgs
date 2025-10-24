@@ -34,6 +34,7 @@ hugo
 iftop
 ipcalc
 iperf
+jc
 jq
 k9s
 kube-linter
@@ -49,10 +50,12 @@ ollama
 pgcli
 pwgen
 readline
+ripgrep
 sqlite
 starship
 swaks
 thefuck
+tldr
 tmux
 trash-cli
 tree
