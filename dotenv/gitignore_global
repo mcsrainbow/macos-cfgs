@@ -23,6 +23,7 @@ __pycache__/
 *.py[codz]
 *$py.class
 .venv/
+.pytest_cache/
 
 # Java
 *.class
