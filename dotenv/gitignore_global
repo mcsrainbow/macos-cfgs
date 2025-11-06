@@ -11,9 +11,7 @@ ehthumbs.db
 
 # Editor
 *~
-*.swp
-*.swo
-*.swn
+*.sw[a-z]
 
 # IDE
 .vscode/
@@ -22,8 +20,9 @@ ehthumbs.db
 
 # Python
 __pycache__/
-*.py[cod]
+*.py[codz]
 *$py.class
+.venv/
 
 # Java
 *.class
@@ -32,3 +31,7 @@ replay_pid*
 
 # Node
 node_modules/
+
+# Temp
+*.tmp
+*.log
