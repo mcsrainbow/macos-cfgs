@@ -12,6 +12,7 @@ cmake
 coreutils
 csvkit
 dos2unix
+duckdb
 dust
 fd
 findutils
