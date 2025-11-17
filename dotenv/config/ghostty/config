@@ -41,9 +41,6 @@ mouse-hide-while-typing = true
 ## Shell
 shell-integration-features = no-cursor,sudo,no-title
 
-## Shaders
-custom-shader = ./shaders/cursor_blaze.glsl
-
 ## macOS
 macos-titlebar-style = tabs
 macos-option-as-alt = left
