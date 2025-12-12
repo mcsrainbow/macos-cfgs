@@ -1,18 +1,27 @@
 # macOS
 .DS_Store
+Icon
+._*
 
-# Vim
-*.swp
+# Windows
+Thumbs.db
+ehthumbs.db
+*.stackdump
+[Dd]esktop.ini
 
-# Emacs/Vi
+# Editor
 *~
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
+*.sw[a-z]
 
 # IDE
 .vscode/
 .idea/
 .ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[codz]
+*$py.class
+.venv/
+.pytest_cache/
+
