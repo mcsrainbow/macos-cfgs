@@ -42,9 +42,6 @@ bindkey '^ ' autosuggest-accept
 # Bind Ctrl+U to delete before cursor instead of whole line
 bindkey '^U' backward-kill-line
 
-# Enable fuck
-eval "$(thefuck --alias)"
-
 # Enable Atuin magical shell history
 eval "$(atuin init zsh --disable-up-arrow)"
 

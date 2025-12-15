@@ -168,9 +168,6 @@ export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
 # Enable zoxide
 eval "$(zoxide init bash)"
 
-# Enable fuck
-eval "$(thefuck --alias)"
-
 # Show current Kubernetes context and namespace with colors in Starship Bash prompt
 function kubeon() {
   sed -i '/\[kubernetes\]/!b;n;s/disabled = true/disabled = false/' $STARSHIP_CONFIG
