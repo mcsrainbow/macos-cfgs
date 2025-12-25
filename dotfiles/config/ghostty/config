@@ -34,6 +34,8 @@ confirm-close-surface = false
 keybind = cmd+period=text:\x0b
 ### ctrl+r search previous commands
 keybind = cmd+r=text:\x12
+### send esc+enter
+keybind = shift+enter=text:\x1b\r
 
 ## Mouse
 mouse-hide-while-typing = true
