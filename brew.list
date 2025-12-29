@@ -37,7 +37,6 @@ ipcalc
 iperf
 jc
 jq
-jsonfmt
 k9s
 kube-linter
 kubectx
@@ -63,7 +62,6 @@ trzsz-go
 uv
 watch
 wget
-yamlfmt
 yq
 zoxide
 
