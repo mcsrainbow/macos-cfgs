@@ -19,7 +19,6 @@ findutils
 flux
 fzf
 gawk
-git-crypt
 git-delta
 git-filter-repo
 git-lfs
