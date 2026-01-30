@@ -20,6 +20,7 @@ flux
 fzf
 gawk
 git-delta
+git-extras
 git-filter-repo
 git-lfs
 git-who
