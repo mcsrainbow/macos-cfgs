@@ -2,11 +2,11 @@
 
 # User specific aliases and functions
 alias ls='lsd -N'
-alias ll='lsd -N -l --git --total-size --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias ll='lsd -N -l --group-directories-first --git --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias la='lsd -N --almost-all'
-alias lrt='lsd -N -lrth --git --total-size --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias lrt='lsd -N -lrth --git --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias lrs='lsd -N -lrSh --git --total-size --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
-alias lvh='lsd -N -lvh --git --total-size --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
+alias lvh='lsd -N -lvh --git --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias tree='lsd -N --tree --group-directories-first'
 alias rm='trash --stopOnError --verbose'
 alias cp='cp -i'
