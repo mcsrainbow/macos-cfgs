@@ -45,6 +45,7 @@ kubernetes-cli
 kustomize
 lftp
 lsd
+mkcert
 mtr
 mycli
 nvm
