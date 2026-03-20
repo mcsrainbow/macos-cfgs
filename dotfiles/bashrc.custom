@@ -98,11 +98,8 @@ function checkip() {
   curl -s ipinfo.io/$1
 }
 
-# NVM
-function use_nvm() {
-  export NVM_DIR=$HOME/.nvm
-  source /opt/homebrew/opt/nvm/nvm.sh
-}
+# Fast Node Manager
+eval "$(fnm env --use-on-cd --shell bash)"
 
 # Anaconda
 function use_conda() {
