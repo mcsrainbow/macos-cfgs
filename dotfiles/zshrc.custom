@@ -46,11 +46,8 @@ bindkey '^U' backward-kill-line
 # Enable Atuin magical shell history
 eval "$(atuin init zsh --disable-up-arrow)"
 
-# NVM
-function use_nvm() {
-  export NVM_DIR=$HOME/.nvm
-  source /opt/homebrew/opt/nvm/nvm.sh
-}
+# Fast Node Manager
+eval "$(fnm env --use-on-cd --shell zsh)"
 
 # Anaconda
 function use_conda() {
