@@ -101,11 +101,6 @@ function checkip() {
 # Fast Node Manager
 eval "$(fnm env --use-on-cd --shell bash)"
 
-# Anaconda
-function use_conda() {
-  source /opt/homebrew/anaconda3/etc/profile.d/conda.sh
-}
-
 # Filesystem Markers & Jump
 export MARKPATH=$HOME/.marks
 
