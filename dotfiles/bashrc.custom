@@ -24,6 +24,7 @@ alias ccat='bat --theme="Solarized (dark)" --style=plain --paging=never'
 alias vbare='vim +"set syntax=off paste wrap nonumber"'
 
 # Clear screen but keep scrollback history
+alias c='printf "\033[H\033[22J"'
 alias clear='printf "\033[H\033[22J"'
 
 # LANG
