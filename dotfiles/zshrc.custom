@@ -49,11 +49,6 @@ eval "$(atuin init zsh --disable-up-arrow)"
 # Fast Node Manager
 eval "$(fnm env --use-on-cd --shell zsh)"
 
-# Anaconda
-function use_conda() {
-  source /opt/homebrew/anaconda3/etc/profile.d/conda.sh
-}
-
 # Check current public IP
 function publicip() {
   local website_list message website
