@@ -21,11 +21,12 @@ alias kctx='KUBECTX_IGNORE_FZF=1 kubectx'
 alias kns='KUBECTX_IGNORE_FZF=1 kubens'
 alias watch='watch '
 alias ccat='bat --theme="Solarized (dark)" --style=plain --paging=never'
-alias vbare='vim +"set syntax=off paste wrap nonumber"'
+alias vraw='vim +"set syntax=off paste wrap nonumber"'
+alias vpaste='vim +"set paste"'
 
 # Clear screen but keep scrollback history
-alias c='printf "\033[H\033[22J"'
 alias clear='printf "\033[H\033[22J"'
+alias c='clear'
 
 # LANG
 export LANG=en_US.UTF-8
@@ -74,9 +75,7 @@ function publicip() {
   local website_list website
 
   website_list=(
-    ipinfo.io
     checkip.amazonaws.com
-    ifconfig.co
     ifconfig.me
     ifconfig.io
   )
@@ -96,7 +95,8 @@ function checkip() {
     echo "${_tput_yellow}NOTICE: HTTP_PROXY has been set${_tput_reset}"
   fi
 
-  curl -s ipinfo.io/$1
+  curl -s ipinfo.io/$1 | jq 'if has("city") then {ip,city,region,country,org,postal,timezone} else . end'
+  curl -s ip-api.com/json/$1 | jq 'if has("city") then {query,city,regionName,region,country,countryCode,as,zip,timezone} else . end'
 }
 
 # Fast Node Manager
