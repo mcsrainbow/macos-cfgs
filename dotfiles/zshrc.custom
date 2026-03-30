@@ -57,8 +57,11 @@ function publicip() {
 
   website_list=(
     checkip.amazonaws.com
+    icanhazip.com
     ifconfig.me
     ifconfig.io
+    ident.me
+    ip.sb
   )
 
   if [[ -n "$HTTP_PROXY" ]]; then
@@ -80,8 +83,9 @@ function checkip() {
     echo -e "\033[33m${message}\033[0m"
   fi
 
-  curl -s ipinfo.io/$1 | jq 'if has("city") then {ip,city,region,country,org,postal,timezone} else . end'
-  curl -s ip-api.com/json/$1 | jq 'if has("city") then {query,city,regionName,region,country,countryCode,as,zip,timezone} else . end'
+  curl -s "ipinfo.io/$1?token=$IPINFO_TOKEN" | jq 'if has("city") then {ip,city,region,country,org,postal,timezone} else . end'
+  curl -s "ip-api.com/json/$1" | jq 'if has("city") then {query,city,regionName,region,country,countryCode,as,zip,timezone} else . end'
+  curl -s "ipwho.is/$1" | jq 'if has("city") then {ip,city,region,region_code,country,country_code,isp: "AS\(.connection.asn) \(.connection.isp)",postal,timezone: .timezone.id} else . end'
 }
 
 # Fast way to cd up N directory levels
