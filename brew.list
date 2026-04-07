@@ -52,10 +52,8 @@ mycli
 ollama
 pgcli
 pwgen
-readline
 ripgrep
 ruff
-sqlite
 starship
 swaks
 tmux
