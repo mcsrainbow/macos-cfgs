@@ -32,8 +32,8 @@ alias c='clear'
 # LANG
 export LANG=en_US.UTF-8
 
-# The plugin manager for kubectl command-line tool
-export PATH=$HOME/.krew/bin:$PATH
+# The local bin and plugin manager for kubectl command-line tool
+export PATH=$HOME/.local/bin:$HOME/.krew/bin:$PATH
 
 # Increase history size
 export SAVEHIST=1000000000

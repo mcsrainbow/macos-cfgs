@@ -206,8 +206,8 @@ source <(kubectl completion bash)
 alias k='env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY kubectl'
 complete -o default -F __start_kubectl k
 
-# The plugin manager for kubectl command-line tool
-export PATH=$HOME/.krew/bin:$PATH
+# The local bin and plugin manager for kubectl command-line tool
+export PATH=$HOME/.local/bin:$HOME/.krew/bin:$PATH
 
 # Enable or disable HTTP proxy
 declare -A _proxy_protocols=(
