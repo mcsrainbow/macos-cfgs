@@ -17,6 +17,7 @@ ehthumbs.db
 .vscode/
 .idea/
 .ipynb_checkpoints/
+.zed/
 
 # Python
 __pycache__/
