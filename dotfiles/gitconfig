@@ -3,9 +3,9 @@
     email = guosuiyu@gmail.com
 [color]
     ui = auto
-[includeIf "gitdir:~/SwireProperties/"]
+[includeIf "gitdir:**/SwireProperties/"]
     path = .gitconfig-swireproperties
-[includeIf "gitdir:~/jihulab/"]
+[includeIf "gitdir:**/jihulab/"]
     path = .gitconfig-swireproperties
 [core]
     pager = delta
