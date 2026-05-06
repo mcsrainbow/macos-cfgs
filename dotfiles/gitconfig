@@ -5,6 +5,8 @@
     ui = auto
 [includeIf "gitdir:~/SwireProperties/"]
     path = .gitconfig-swireproperties
+[includeIf "gitdir:~/jihulab/"]
+    path = .gitconfig-swireproperties
 [core]
     pager = delta
     excludesfile = ~/.gitignore_global
