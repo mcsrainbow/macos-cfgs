@@ -55,6 +55,7 @@ mycli
 nmap
 ollama
 pgcli
+pv
 pwgen
 ripgrep
 ruff
