@@ -17,7 +17,6 @@ ehthumbs.db
 .vscode/
 .idea/
 .ipynb_checkpoints/
-.zed/
 
 # Python
 __pycache__/
@@ -34,6 +33,10 @@ replay_pid*
 
 # Node
 node_modules/
+
+# AI
+.codex/
+.claude/
 
 # Temp
 *.tmp
