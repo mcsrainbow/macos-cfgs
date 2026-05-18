@@ -35,8 +35,10 @@ replay_pid*
 node_modules/
 
 # AI
-.codex/
+.agents/
 .claude/
+.cursor/
+.codex/
 
 # Temp
 *.tmp
