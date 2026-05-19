@@ -149,6 +149,11 @@ function proxyoff() {
   echo "unset ${(@k)_proxy_protocols} NO_PROXY"
 }
 
+# Generate shell commands using ShellGPT
+function sgs() {
+  sgpt --shell "$*"
+}
+
 # Obsidian
 function sync_obsidian() {
   local status_lines
