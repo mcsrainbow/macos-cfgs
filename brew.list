@@ -47,6 +47,7 @@ kube-linter
 kubectx
 kubernetes-cli
 kustomize
+lazygit
 lftp
 lsd
 mkcert
