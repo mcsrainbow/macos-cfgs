@@ -1,2 +1,2 @@
 mempalace
---with 'httpx[socks]' shell-gpt
+--with 'httpx[socks]' --with click shell-gpt

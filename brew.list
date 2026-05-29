@@ -20,6 +20,7 @@ fd
 findutils
 flux
 fnm
+fresh-editor
 fzf
 gawk
 git-delta
