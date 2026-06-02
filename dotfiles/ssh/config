@@ -3,16 +3,15 @@ Host *
      ServerAliveInterval 30
      ServerAliveCountMax 10
      SetEnv TERM=xterm-256color
-     WarnWeakCrypto no-pq-kex
 
 # GitHub
 Host github.com
      HostName github.com
      User git
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
 
 # GitLab
 Host gitlab.com
      HostName gitlab.com
      User git
-     IdentityFile ~/.ssh/id_rsa
+     IdentityFile ~/.ssh/id_ed25519
