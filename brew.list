@@ -57,6 +57,7 @@ mycli
 nmap
 ollama
 pgcli
+procs
 pv
 pwgen
 ripgrep
@@ -67,10 +68,12 @@ tmux
 todo-txt
 tokei
 tree
+trippy
 trzsz-go
 uv
 watch
 wget
+xh
 yazi
 yq
 zellij
