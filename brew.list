@@ -5,6 +5,7 @@ aliyun-cli
 ansible
 atuin
 awscli
+bandwhich
 bash
 bash-completion
 bat
