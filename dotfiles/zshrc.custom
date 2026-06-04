@@ -2,8 +2,8 @@
 
 # User specific aliases and functions
 alias ls='lsd -N'
-alias ll='lsd -N -l --group-directories-first --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias la='lsd -N --almost-all'
+alias ll='lsd -N -l --group-directories-first --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias lrt='lsd -N -lrth --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias lrs='lsd -N -lrSh --total-size --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
 alias lvh='lsd -N -lvh --size short --date "+%a %Y-%m-%d_%H:%M:%S"'
