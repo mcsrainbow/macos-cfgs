@@ -1,0 +1,23 @@
+{
+  "theme": "terminal",
+  "file_explorer": {
+    "show_hidden": true,
+    "show_gitignored": true
+  },
+  "editor": {
+    "use_terminal_bg": true,
+    "highlight_current_column": true,
+    "whitespace_spaces_trailing": true,
+    "cursor_style": "blinking_bar"
+  },
+  "plugins": {
+    "vi_mode": {
+      "settings": {
+        "autoStart": true
+      }
+    }
+  },
+  "file_browser": {
+    "show_hidden": true
+  }
+}
