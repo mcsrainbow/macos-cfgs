@@ -1,5 +1,8 @@
-❯ brew list -1
-==> Formulae
+❯ brew tap
+algolia/algolia-cli
+fluxcd/tap
+
+❯ brew list --formulae -1
 algolia
 aliyun-cli
 ansible
@@ -79,7 +82,7 @@ yq
 zellij
 zoxide
 
-==> Casks
+❯ brew list --cask -1
 arc
 baidunetdisk
 capcut
