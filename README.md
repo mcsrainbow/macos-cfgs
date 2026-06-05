@@ -1,6 +1,6 @@
 # macos-cfgs
 
-Personal macOS configurations
+macOS configurations
 
 ## Screenshots
 

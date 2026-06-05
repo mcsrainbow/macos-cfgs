@@ -21,24 +21,27 @@ Follow good Git style:
 
 Examples from the official Conventional Commits specification:
 
-- Simple feature (no scope):
+- Simple feature (no scope):  
   feat: allow provided config object to extend other configs
 
-- Feature with scope:
+- Feature with scope:  
   feat(lang): add Polish language
 
-- Breaking change with exclamation mark (no scope):
+- Breaking change with exclamation mark (no scope):  
   chore!: drop support for Node 6
 
-- Breaking change with scope and exclamation mark:
+- Breaking change with scope and exclamation mark:  
   feat(api)!: send an email to the customer when a product is shipped
 
-- Fix with message body and multiple footers:
+- Fix with message body and multiple footers:  
   fix: prevent racing of requests
 
-  Introduce a request id and a reference to latest request. Dismiss incoming responses other than from latest request. Remove timeouts which were used to mitigate the racing issue but are obsolete now.
-  Reviewed-by: Z
+  Introduce a request id and a reference to latest request. Dismiss incoming responses other than from latest request.
+
+  Remove timeouts which were used to mitigate the racing issue but are obsolete now.
+
+  Reviewed-by: Z  
   Refs: #123
 
-- Commit message with no body:
+- Commit message with no body:  
   docs: correct spelling of CHANGELOG

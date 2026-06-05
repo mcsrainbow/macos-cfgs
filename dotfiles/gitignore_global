@@ -37,8 +37,8 @@ node_modules/
 # AI
 .agents/
 .claude/
-.cursor/
 .codex/
+.cursor/
 
 # Temp
 *.tmp

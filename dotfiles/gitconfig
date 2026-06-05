@@ -3,10 +3,6 @@
     email = guosuiyu@gmail.com
 [color]
     ui = auto
-
-
-
-
 [core]
     pager = delta
     excludesfile = ~/.gitignore_global
