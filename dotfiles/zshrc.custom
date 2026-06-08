@@ -36,8 +36,8 @@ export LANG=en_US.UTF-8
 export PATH=$HOME/.local/bin:$HOME/.krew/bin:$PATH
 
 # Increase history size
-SAVEHIST=1000000000
-HISTSIZE=1000000
+export SAVEHIST=1000000000
+export HISTSIZE=1000000
 
 # Bind Ctrl+Space to accept the current suggestion
 bindkey '^ ' autosuggest-accept
