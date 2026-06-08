@@ -12,14 +12,10 @@ bandwhich
 bash
 bash-completion
 bat
-bottom
 btop
-choose-rust
 cmake
 coreutils
-croc
 csvkit
-doggo
 dos2unix
 duckdb
 dust
@@ -40,7 +36,6 @@ git-who
 gnu-sed
 gnu-tar
 go
-gping
 grep
 gum
 helm
