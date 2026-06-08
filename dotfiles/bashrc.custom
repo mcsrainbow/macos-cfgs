@@ -32,14 +32,14 @@ alias c='clear'
 export LANG=en_US.UTF-8
 
 # Log the history commands with time stamps
-export HISTFILESIZE="1000000000"
-export HISTSIZE="1000000"
-export HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S "
-export HISTIGNORE="history*:pwd:ls:ll:la:lrt:lvh:clear:exit:zsh"
-export HISTCONTROL="ignoredups"
+HISTFILESIZE="1000000000"
+HISTSIZE="1000000"
+HISTTIMEFORMAT="%Y-%m-%d_%H:%M:%S "
+HISTIGNORE="history*:pwd:ls:ll:la:lrt:lvh:clear:exit:zsh"
+HISTCONTROL="ignoredups"
 
 # Append commands immediately to history
-export PROMPT_COMMAND="history -a"
+PROMPT_COMMAND="history -a"
 
 # Enable auto-completion of bash
 source /opt/homebrew/etc/profile.d/bash_completion.sh
@@ -107,7 +107,7 @@ function checkip() {
 eval "$(fnm env --use-on-cd --shell bash)"
 
 # Filesystem Markers & Jump
-export MARKPATH=$HOME/.marks
+MARKPATH=$HOME/.marks
 
 function jump() {
   cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"

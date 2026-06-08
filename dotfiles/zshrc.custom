@@ -36,14 +36,17 @@ export LANG=en_US.UTF-8
 export PATH=$HOME/.local/bin:$HOME/.krew/bin:$PATH
 
 # Increase history size
-export SAVEHIST=1000000000
-export HISTSIZE=1000000
+SAVEHIST=1000000000
+HISTSIZE=1000000
 
 # Bind Ctrl+Space to accept the current suggestion
 bindkey '^ ' autosuggest-accept
 
 # Bind Ctrl+U to delete before cursor instead of whole line
 bindkey '^U' backward-kill-line
+
+# Keep a space before | and & after Tab completion
+ZLE_SPACE_SUFFIX_CHARS=$'|&'
 
 # Enable Atuin magical shell history
 eval "$(atuin init zsh --disable-up-arrow)"
