@@ -31,15 +31,9 @@ __pycache__/
 hs_err_pid*
 replay_pid*
 
-# Node
+# Node.js
 node_modules/
 
-# AI
-.agents/
-.claude/
-.codex/
-.cursor/
-
-# Temp
+# Temporary
 *.tmp
 *.log
