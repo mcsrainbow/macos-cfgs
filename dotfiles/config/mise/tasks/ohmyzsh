@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh
+#MISE description="Update custom Oh-My-Zsh extensions"
+#MISE alias="ohmyzsh"
+
+# -P enables prompt expansion, allowing %F{color} and %f (reset) to colorize output
+print -P "%F{yellow}INFO:%f Updating Oh-My-Zsh..."
+# -C runs git inside the specified directory without changing the current working directory
+git -C "$HOME/.oh-my-zsh" pull --ff-only
+
+# (N/): Zsh Glob Qualifiers
+# 'N' (Null_Glob) prevents "no matches found" errors if the directory is empty
+# '/' restricts the match strictly to directories
+for repo in $HOME/.oh-my-zsh/custom/{themes,plugins}/*/.git(N/); do
+  # :h (Head) modifier extracts the parent directory path (similar to `dirname`)
+  local extension_dir="${repo:h}"
+  # :t (Tail) modifier extracts the last component/basename (similar to `basename`)
+  local extension_name="${extension_dir:t}"
+
+  print -P "%F{yellow}INFO:%f Updating extension ${extension_name}..."
+  git -C "$extension_dir" pull --ff-only
+done
+
+print -P "%F{green}INFO:%f Done"
