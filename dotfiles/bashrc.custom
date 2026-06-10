@@ -106,8 +106,8 @@ function checkip() {
   curl -s "ipwho.is/$1" | jq 'if has("city") then {ip,city,region,region_code,country,country_code,isp: "AS\(.connection.asn) \(.connection.isp)",postal,timezone: .timezone.id} else . end'
 }
 
-# Fast Node Manager
-eval "$(fnm env --use-on-cd --shell bash)"
+# mise-en-place
+eval "$(mise activate bash)"
 
 # Filesystem Markers & Jump
 export MARKPATH=$HOME/.marks

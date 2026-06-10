@@ -51,8 +51,8 @@ ZLE_SPACE_SUFFIX_CHARS=$'|&'
 # Enable Atuin magical shell history
 eval "$(atuin init zsh --disable-up-arrow)"
 
-# Fast Node Manager
-eval "$(fnm env --use-on-cd --shell zsh)"
+# mise-en-place
+eval "$(mise activate zsh)"
 
 # Check current public IP
 function publicip() {

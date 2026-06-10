@@ -25,7 +25,6 @@ eza
 fd
 findutils
 flux
-fnm
 fresh-editor
 fzf
 gawk
@@ -58,6 +57,7 @@ kustomize
 lazygit
 lftp
 lsd
+mise
 mkcert
 mtr
 mycli
