@@ -68,8 +68,7 @@ function publicip() {
   )
 
   if [[ -n "$HTTP_PROXY" ]]; then
-    message="NOTICE: HTTP_PROXY has been set"
-    echo -e "\033[33m${message}\033[0m"
+    print -P "%F{yellow}NOTICE: HTTP_PROXY has been set%f"
   fi
 
   for website in ${website_list[@]}; do
@@ -82,8 +81,7 @@ function checkip() {
   local message
 
   if [[ -n "$HTTP_PROXY" ]]; then
-    message="NOTICE: HTTP_PROXY has been set"
-    echo -e "\033[33m${message}\033[0m"
+    print -P "%F{yellow}NOTICE: HTTP_PROXY has been set%f"
   fi
 
   curl -s "ipinfo.io/$1?token=$IPINFO_TOKEN" | jq 'if has("city") then {ip,city,region,country,org,postal,timezone} else . end'
@@ -114,7 +112,7 @@ function pwrgen() {
   passwdstr=$(pwgen -cnsB ${passwdlen} 1)
   randomnum=$((RANDOM % (passwdlen - 2) + 2))
   passwdout=$(echo ${passwdstr} | sed "s/./_/$randomnum")
-  echo -e "\033[33m${passwdout}\033[0m"
+  print -P "%F{yellow}${passwdout}%f"
 }
 
 # Enable or disable HTTP proxy
