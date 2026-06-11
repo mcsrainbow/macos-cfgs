@@ -151,8 +151,31 @@ function proxyoff() {
 }
 
 # Generate shell commands using ShellGPT
-function sgs() {
+function sgsh() {
   sgpt --shell "$*"
+}
+
+# Generate git commit message using ShellGPT
+function sgcm() {
+  local commit_msg
+  git rev-parse --is-inside-work-tree 2>&1 | grep -wq true || {
+    echo "INFO: Not a git repository"
+    return 0
+  }
+
+  if git diff --quiet --exit-code --no-ext-diff; then
+    echo "INFO: No diff"
+    return 0
+  fi
+
+  commit_msg="$(
+    git --no-pager diff --no-ext-diff --no-color \
+      | sgpt "Generate exactly one conventional commit message in a single line only" \
+      | sed 's/[[:space:]]*$//'
+  )"
+
+  printf '%s\n' "$commit_msg"
+  printf '%s' "$commit_msg" | pbcopy
 }
 
 # Obsidian
