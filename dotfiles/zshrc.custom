@@ -155,7 +155,7 @@ function sgsh() {
   sgpt --shell "$*"
 }
 
-# Generate git commit message using ShellGPT
+# Generate commit message using ShellGPT
 function sgcm() {
   local commit_msg
   git rev-parse --is-inside-work-tree 2>&1 | grep -wq true || {
