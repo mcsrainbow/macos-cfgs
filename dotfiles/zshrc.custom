@@ -52,7 +52,7 @@ ZLE_SPACE_SUFFIX_CHARS=$'|&'
 eval "$(atuin init zsh --disable-up-arrow)"
 
 # mise-en-place
-eval "$(mise activate zsh)"
+eval "$(mise activate zsh --shims)"
 
 # Check current public IP
 function publicip() {

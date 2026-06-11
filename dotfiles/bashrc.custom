@@ -107,7 +107,7 @@ function checkip() {
 }
 
 # mise-en-place
-eval "$(mise activate bash)"
+eval "$(mise activate bash --shims)"
 
 # Filesystem Markers & Jump
 export MARKPATH=$HOME/.marks
