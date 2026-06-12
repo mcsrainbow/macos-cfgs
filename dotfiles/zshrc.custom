@@ -157,19 +157,22 @@ function sgsh() {
 
 # Generate commit message using ShellGPT
 function sgcm() {
-  local commit_msg
-  git rev-parse --is-inside-work-tree 2>&1 | grep -wq true || {
+  local commit_msg diff_scope
+
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1 || {
     echo "INFO: Not a git repository"
     return 0
   }
 
-  if git diff --quiet --exit-code --no-ext-diff; then
+  [[ "$1" == "cached" || "$1" == "staged" ]] && diff_scope="--staged"
+
+  if git diff --quiet --exit-code --no-ext-diff $diff_scope; then
     echo "INFO: No diff"
     return 0
   fi
 
   commit_msg="$(
-    git --no-pager diff --no-ext-diff --no-color \
+    git --no-pager diff --no-ext-diff --no-color $diff_scope \
       | sgpt "Generate exactly one conventional commit message in a single line only" \
       | sed 's/[[:space:]]*$//'
   )"
