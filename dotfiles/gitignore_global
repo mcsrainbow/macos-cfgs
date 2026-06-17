@@ -25,6 +25,7 @@ __pycache__/
 .venv/
 .pytest_cache/
 .ruff_cache/
+uv.lock
 
 # Java
 *.class
