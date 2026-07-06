@@ -1,2 +1,1 @@
-mempalace
 --with 'httpx[socks]' --with click shell-gpt
