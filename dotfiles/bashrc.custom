@@ -254,9 +254,9 @@ function _sgpt_wrapper() {
   local stdinfile="$2"
 
   if [[ -n "$stdinfile" && -f "$stdinfile" ]]; then
-    sgpt "$sysprompt" < "$stdinfile"
+    sgpt --no-functions "$sysprompt" < "$stdinfile"
   elif [[ ! -t 0 ]]; then
-    sgpt "$sysprompt"
+    sgpt --no-functions "$sysprompt"
   else
     echo "${_tput_red}ERROR: No such file or pipeline stdin${_tput_reset}"
     return 1
