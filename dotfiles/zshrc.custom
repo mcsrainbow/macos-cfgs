@@ -150,6 +150,32 @@ function proxyoff() {
   echo "unset ${(@k)_proxy_protocols} NO_PROXY"
 }
 
+# Check logs using ShellGPT
+function sglog() {
+  local sysprompt="Check logs, find errors, provide possible solutions"
+  if [[ -n "$1" && -f "$1" ]]; then
+    sgpt "$sysprompt" < "$1"
+  elif [[ ! -t 0 ]]; then
+    sgpt "$sysprompt"
+  else
+    print -P "%F{red}ERROR: No such file or pipeline stdin%f"
+    return 1
+  fi
+}
+
+# Summarize using ShellGPT
+function sgsum() {
+  local sysprompt="Summarize the following content clearly and concisely, highlighting key points"
+  if [[ -n "$1" && -f "$1" ]]; then
+    sgpt "$sysprompt" < "$1"
+  elif [[ ! -t 0 ]]; then
+    sgpt "$sysprompt"
+  else
+    print -P "%F{red}ERROR: No such file or pipeline stdin%f"
+    return 1
+  fi
+}
+
 # Generate shell commands using ShellGPT
 function sgsh() {
   sgpt --shell "$*"
