@@ -291,7 +291,7 @@ function sgcm() {
   [[ "$1" == "cached" || "$1" == "staged" ]] && diff_scope="--staged"
 
   if git diff --quiet --exit-code --no-ext-diff $diff_scope; then
-    echo "INFO: No diff"
+    echo "INFO: No git diff"
     return 0
   fi
 
