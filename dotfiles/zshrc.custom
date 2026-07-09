@@ -150,11 +150,13 @@ function proxyoff() {
   echo "unset ${(@k)_proxy_protocols} NO_PROXY"
 }
 
-# Check logs using ShellGPT
-function sglog() {
-  local sysprompt="Check logs, find errors, provide possible solutions"
-  if [[ -n "$1" && -f "$1" ]]; then
-    sgpt "$sysprompt" < "$1"
+# Core wrapper function for ShellGPT
+function _sgpt_wrapper() {
+  local sysprompt="$1"
+  local stdinfile="$2"
+
+  if [[ -n "$stdinfile" && -f "$stdinfile" ]]; then
+    sgpt "$sysprompt" < "$stdinfile"
   elif [[ ! -t 0 ]]; then
     sgpt "$sysprompt"
   else
@@ -163,17 +165,16 @@ function sglog() {
   fi
 }
 
+# Check logs using ShellGPT
+function sglog() {
+  local sysprompt="Check logs, find errors, provide possible solutions"
+  _sgpt_wrapper "$sysprompt" "$1"
+}
+
 # Summarize using ShellGPT
 function sgsum() {
   local sysprompt="Summarize the following content clearly and concisely, highlighting key points"
-  if [[ -n "$1" && -f "$1" ]]; then
-    sgpt "$sysprompt" < "$1"
-  elif [[ ! -t 0 ]]; then
-    sgpt "$sysprompt"
-  else
-    print -P "%F{red}ERROR: No such file or pipeline stdin%f"
-    return 1
-  fi
+  _sgpt_wrapper "$sysprompt" "$1"
 }
 
 # Generate shell commands using ShellGPT
@@ -200,7 +201,7 @@ function sgcm() {
   commit_msg="$(
     git --no-pager diff --no-ext-diff --no-color $diff_scope \
       | sgpt --md "Generate a single line git conventional commit message" \
-      | sed 's/[[:space:]]*$//'
+      | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
   )"
 
   printf '%s\n' "$commit_msg"
