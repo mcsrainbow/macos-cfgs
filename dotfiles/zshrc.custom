@@ -173,7 +173,7 @@ function sgcm() {
 
   commit_msg="$(
     git --no-pager diff --no-ext-diff --no-color $diff_scope \
-      | sgpt "Generate exactly one conventional commit message in a single line only" \
+      | sgpt --md "Generate a single line git conventional commit message" \
       | sed 's/[[:space:]]*$//'
   )"
 
