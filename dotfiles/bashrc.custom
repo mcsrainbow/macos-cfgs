@@ -265,13 +265,13 @@ function _sgpt_wrapper() {
 
 # Check logs using ShellGPT
 function sglog() {
-  local sysprompt="Check logs, find errors, provide possible solutions"
+  local sysprompt="Check logs, find errors, provide possible solutions. Respond in Chinese."
   _sgpt_wrapper "$sysprompt" "$1"
 }
 
 # Summarize using ShellGPT
 function sgsum() {
-  local sysprompt="Summarize the following content clearly and concisely, highlighting key points"
+  local sysprompt="Summarize the following content clearly and concisely, highlighting key points. Respond in Chinese."
   _sgpt_wrapper "$sysprompt" "$1"
 }
 
@@ -298,7 +298,7 @@ function sgcm() {
 
   commit_msg="$(
     git --no-pager diff --no-ext-diff --no-color $diff_scope \
-      | sgpt --no-functions --md "Generate a single line git conventional commit message" \
+      | sgpt --no-functions --md "Generate a single line git conventional commit message. Respond in English." \
       | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//'
   )"
 
