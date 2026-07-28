@@ -275,6 +275,12 @@ function sgsum() {
   _sgpt_wrapper "$sysprompt" "$1"
 }
 
+# Explain using ShellGPT
+function sgeli() {
+  local sysprompt="Explain the following content like I am 10 years old. Respond in Chinese."
+  _sgpt_wrapper "$sysprompt" "$1"
+}
+
 # Generate shell commands using ShellGPT
 function sgsh() {
   sgpt --shell "$*"
