@@ -139,6 +139,7 @@ function proxyon() {
     "100.64.0.0/10"
     "169.254.0.0/16"
     "198.18.0.0/15"
+    "aliyuncs.com"
   )
   export NO_PROXY=${(j:,:)noproxy_list}
 
