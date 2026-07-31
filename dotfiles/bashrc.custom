@@ -304,8 +304,8 @@ function sgcm() {
 
   commit_msg="$(
     git --no-pager diff --no-ext-diff --no-color $diff_scope \
-      | sgpt --no-functions --md 'Generate a single line git conventional commit message. Respond in English.' \
-      | xargs
+      | sgpt --no-functions 'Generate a single line git conventional commit message. Respond in English.' \
+      | sed -E '/^[[:space:]]*$/d; s/^[[:space:]`]+//; s/[[:space:]`]+$//'
   )"
 
   printf '%s\n' "$commit_msg"
