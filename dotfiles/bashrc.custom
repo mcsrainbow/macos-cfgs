@@ -51,7 +51,7 @@ source /opt/homebrew/etc/profile.d/bash_completion.sh
 complete -cf sudo
 
 # Enable auto-completion of aws
-complete -cf aws
+complete -C aws_completer aws
 
 # Enable color codes
 export LESS='-R'
