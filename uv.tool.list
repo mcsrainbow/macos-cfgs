@@ -1,1 +1,6 @@
 --with 'httpx[socks]' --with click shell-gpt
+--with-executables-from ansible-core ansible
+csvkit
+jc
+mycli
+pgcli

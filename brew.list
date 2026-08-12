@@ -5,9 +5,7 @@ fluxcd/tap
 ❯ brew list --formulae -1
 algolia
 aliyun-cli
-ansible
 atuin
-awscli
 bandwhich
 bash
 bash-completion
@@ -17,7 +15,6 @@ bun
 choose-rust
 cmake
 coreutils
-csvkit
 dos2unix
 duckdb
 dust
@@ -48,7 +45,6 @@ hyperfine
 iftop
 ipcalc
 iperf
-jc
 jq
 k9s
 kube-linter
@@ -61,12 +57,10 @@ lsd
 mise
 mkcert
 mtr
-mycli
 nmap
 ollama
 onefetch
 ouch
-pgcli
 procs
 pv
 pwgen
