@@ -32,4 +32,4 @@ mise tasks run omzup
 print -P "%F{yellow}INFO:%f 6/6: Upgrading kubectl krew plugins..."
 kubectl krew upgrade
 
-print -P "%F{green}INFO:%f ✨ Cosmos Fully Renewed"
+print -P "%F{green}INFO:%f ✨ Cosmos fully renewed."
