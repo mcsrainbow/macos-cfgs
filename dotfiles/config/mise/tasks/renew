@@ -23,7 +23,7 @@ uv tool upgrade --all
 uv tool list
 
 print -P "%F{yellow}INFO:%f 4/6: Upgrading Node packages..."
-npm update -g --prefer-online --no-fund
+npm update -g --no-fund
 npm list -g --depth=0
 
 print -P "%F{yellow}INFO:%f 5/6: Updating Oh-My-Zsh and custom extensions..."
