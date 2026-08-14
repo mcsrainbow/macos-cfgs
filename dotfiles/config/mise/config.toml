@@ -1,4 +1,4 @@
 [tools]
 awscli = { version = "latest", symlink_bins = "true" }
-java = "17"
+java = "temurin-17"
 node = "24"
