@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-#MISE description="update Oh-My-Zsh and custom extensions"
+#MISE description="Update Oh-My-Zsh and custom extensions"
 #MISE alias="omzup"
 
 # -P enables prompt expansion, allowing %F{color} and %f (reset) to colorize output
