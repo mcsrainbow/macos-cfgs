@@ -23,7 +23,7 @@ alias kns='KUBECTX_IGNORE_FZF=1 kubens'
 alias watch='watch '
 alias ccat='bat --theme="Solarized (dark)" --style=plain --paging=never'
 alias vraw='vim +"set syntax=off paste wrap nonumber"'
-alias vpaste='vim +"set paste"'
+alias vpst='vim +"set paste"'
 
 # Clear screen but keep scrollback history
 alias clear='printf "\033[H\033[22J"'
