@@ -11,25 +11,25 @@ export ALL_PROXY=socks5://${proxy_socket}
 export HTTP_PROXY=http://${proxy_socket}
 export HTTPS_PROXY=http://${proxy_socket}
 
-print -P "%F{yellow}INFO:%f 1/6: Upgrading Homebrew..."
+print -P "%F{yellow}INFO:%f [1/6] Upgrading Homebrew..."
 brew upgrade --yes
 
-print -P "%F{yellow}INFO:%f 2/6: Upgrading mise tools..."
+print -P "%F{yellow}INFO:%f [2/6] Upgrading mise tools..."
 mise upgrade awscli java@temurin-17
 mise list
 
-print -P "%F{yellow}INFO:%f 3/6: Upgrading uv tools..."
+print -P "%F{yellow}INFO:%f [3/6] Upgrading uv tools..."
 uv tool upgrade --all
 uv tool list
 
-print -P "%F{yellow}INFO:%f 4/6: Upgrading Node packages..."
+print -P "%F{yellow}INFO:%f [4/6] Upgrading Node packages..."
 npm update -g --no-fund
 npm list -g --depth=0
 
-print -P "%F{yellow}INFO:%f 5/6: Updating Oh-My-Zsh and custom extensions..."
+print -P "%F{yellow}INFO:%f [5/6] Updating Oh-My-Zsh and custom extensions..."
 mise tasks run omzup
 
-print -P "%F{yellow}INFO:%f 6/6: Upgrading kubectl krew plugins..."
+print -P "%F{yellow}INFO:%f [6/6] Upgrading kubectl krew plugins..."
 kubectl krew upgrade
 
 print -P "%F{green}INFO:%f ✨ Renewed."
