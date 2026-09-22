@@ -18,15 +18,15 @@ cursor-style = bar
 copy-on-select = clipboard
 
 ## Window
-window-title-font-family = "JetBrainsMonoNL Nerd Font"
+window-title-font-family = "SF Pro Text"
 window-padding-x = 10
-window-padding-y = 10
-window-padding-balance = true
-window-height = 40
 window-width = 120
+window-height = 40
+window-step-resize = true
 window-subtitle = working-directory
 window-save-state = always
-background-opacity = 0.9
+background-opacity = 0.90
+adjust-underline-position = 3
 confirm-close-surface = false
 
 ## Keybindings
@@ -41,7 +41,7 @@ keybind = shift+enter=text:\x1b\r
 mouse-hide-while-typing = true
 
 ## Shell
-shell-integration-features = no-cursor,sudo,no-title
+shell-integration-features = no-cursor,no-title,sudo
 
 ## macOS
 macos-titlebar-style = tabs
