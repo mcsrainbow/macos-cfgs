@@ -18,7 +18,7 @@ cursor-style = bar
 copy-on-select = clipboard
 
 ## Window
-window-title-font-family = "SF Pro"
+window-title-font-family = "JetBrains Maple Mono"
 window-padding-x = 10
 window-width = 120
 window-height = 40
