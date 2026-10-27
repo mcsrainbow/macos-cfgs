@@ -1,7 +1,9 @@
+# uv python pin 3.12 --global
+
+# uv tool install
 --with 'httpx[socks]' --with click shell-gpt
---with-executables-from ansible-core ansible
-csvkit
-jc
+ansible-core
 mycli
 pgcli
 litecli
+jc

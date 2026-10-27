@@ -18,7 +18,10 @@ print -P "%F{yellow}INFO:%f [2/6] Upgrading mise tools..."
 mise upgrade awscli java@temurin-17
 mise list
 
-print -P "%F{yellow}INFO:%f [3/6] Upgrading uv tools..."
+print -P "%F{yellow}INFO:%f [3/6] Upgrading uv python versions and tools..."
+uv python upgrade
+uv python list --managed-python --only-installed
+uv python find
 uv tool upgrade --all
 uv tool list
 
