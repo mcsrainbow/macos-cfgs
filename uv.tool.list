@@ -1,4 +1,4 @@
-# uv python pin 3.12 --global
+# uv python pin 3.14 --global
 
 # uv tool install
 --with 'httpx[socks]' --with click shell-gpt
