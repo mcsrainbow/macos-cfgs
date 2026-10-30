@@ -85,7 +85,6 @@ zellij
 zoxide
 
 ❯ brew list --cask -1
-arc
 baidunetdisk
 capcut
 cc-switch
