@@ -1,7 +1,6 @@
 ❯ brew tap
 algolia/algolia-cli
 fluxcd/tap
-mantrakp04/tap
 
 ❯ brew list --formulae -1
 algolia
@@ -86,7 +85,6 @@ zellij
 zoxide
 
 ❯ brew list --cask -1
-ardia
 baidunetdisk
 capcut
 cc-switch
@@ -95,6 +93,7 @@ chatgpt
 claude-code
 codex
 coteditor
+crest-browser
 cursor
 cursor-cli
 dbeaver-community
