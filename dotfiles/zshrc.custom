@@ -52,7 +52,7 @@ ZLE_SPACE_SUFFIX_CHARS=$'|&'
 eval "$(atuin init zsh --disable-up-arrow --disable-ai)"
 
 # mise-en-place
-eval "$(mise activate zsh --shims)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # Check current public IP
 function publicip() {
