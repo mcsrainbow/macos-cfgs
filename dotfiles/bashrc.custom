@@ -107,7 +107,7 @@ function checkip() {
 }
 
 # mise-en-place
-eval "$(mise activate bash --shims)"
+export PATH="$HOME/.local/share/mise/shims:$PATH"
 
 # Filesystem Markers & Jump
 export MARKPATH=$HOME/.marks
