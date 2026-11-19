@@ -15,6 +15,7 @@ bun
 choose-rust
 cmake
 coreutils
+dart-sass
 dos2unix
 duckdb
 dust
