@@ -44,6 +44,7 @@ hugo
 hurl
 hyperfine
 iftop
+imageoptim-cli
 ipcalc
 iperf
 jq
