@@ -25,7 +25,7 @@ window-height = 40
 window-step-resize = true
 window-subtitle = working-directory
 window-save-state = always
-background-opacity = 0.90
+background-opacity = 1.00
 adjust-underline-position = 3
 confirm-close-surface = false
 
