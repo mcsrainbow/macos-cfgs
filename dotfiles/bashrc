@@ -8,6 +8,9 @@ fi
 # Suppress the warning messages of default interactive shell
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+# Add local bin for command-line tools
+export PATH=$HOME/.local/bin:$PATH
+
 # Customized user configuration
 source $HOME/.bashrc.custom
 source $HOME/.bashrc.hidden
